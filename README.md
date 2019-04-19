@@ -11,8 +11,11 @@ inside.
 Inside your User class (or the name you gave as argument otherwise the default
 is user.rb), rolify method has been inserted to provide rolify methods.
 
-#model event: date time location sport level enrollment equipment
-#controller Pages?
-#set up initial protected/unprotected view
+#model event: event_title date time location activity level max_enrollment equipment user_idFK?!?!?
 #react gem
 #react router
+
+rails has_many through
+rolify devise cancan
+event belongs_to trainer class name user (google classname belongs_to)
+join table for many to many relationship between trainers and events
