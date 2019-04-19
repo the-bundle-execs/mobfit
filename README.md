@@ -12,8 +12,7 @@ Inside your User class (or the name you gave as argument otherwise the default
 is user.rb), rolify method has been inserted to provide rolify methods.
 
 #model event: event_title date time location activity level max_enrollment equipment user_idFK?!?!?
-#react gem
-#react router
+#test
 
 rails has_many through
 rolify devise cancan
