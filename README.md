@@ -13,3 +13,10 @@ is user.rb), rolify method has been inserted to provide rolify methods.
 
 hosted_events will be what loads to trainer dashboard
 trainer_id : if is_trainer, user_id=trainer_id
+
+
+look at models, events controller, relationships
+
+QUESTION
+Trainer
+has_many :events
