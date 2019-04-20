@@ -15,8 +15,9 @@ hosted_events will be what loads to trainer dashboard
 trainer_id : if is_trainer, user_id=trainer_id
 
 
-look at models, events controller, relationships
 
-QUESTION
+1. QUESTION
 Trainer
 has_many :events
+2. group approval
+3. github -> master
