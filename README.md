@@ -10,3 +10,15 @@ inside.
 
 Inside your User class (or the name you gave as argument otherwise the default
 is user.rb), rolify method has been inserted to provide rolify methods.
+
+hosted_events will be what loads to trainer dashboard
+trainer_id : if is_trainer, user_id=trainer_id
+if current_user == trainer id
+
+
+
+1. QUESTION
+Trainer
+has_many :events
+2. group approval
+3. github -> master
