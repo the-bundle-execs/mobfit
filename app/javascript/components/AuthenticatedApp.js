@@ -8,7 +8,8 @@ class AuthenticatedApp extends React.Component {
   render () {
     return (
       <React.Fragment>
-        < Events/>
+        < Events />
+        < NewEvent />
         <a rel="nofollow" data-method="delete" href="/users/sign_out">Logout</a>
       </React.Fragment>
     );
