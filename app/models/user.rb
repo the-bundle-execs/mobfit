@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   validates :email, :password, :username, presence: true
   validates :username, :email, uniqueness: true
+  validates :password, length: { minimum: 6 }
 
 
   has_many :attendance_logs

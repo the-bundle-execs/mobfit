@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all
+    events = Event.all
+      render json: events
   end
 
   def create
@@ -19,6 +20,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+  end
 
   def show
   end
