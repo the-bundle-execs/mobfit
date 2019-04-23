@@ -7,8 +7,9 @@ class EventsController < ApplicationController
   end
 
   def create
-    event = Event.new(event_params)
+    event = current_user.hosted_events.new(event_params)
     if event.valid?
+      event.save
       render json: event
     else
       render json: event.errors, status: :unprocessable_entity
