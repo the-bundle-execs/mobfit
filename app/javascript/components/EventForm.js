@@ -6,7 +6,6 @@ class EventForm extends Component {
         super(props)
         this.state = {
             form:{
-              trainer_id: this.props.current_user,
               event_name: '',
               date: '',
               time: '',
