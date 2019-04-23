@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-import { Form, Button, Container, Row, Col } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap'
+
 //input field
-//shows up?
+//condense indexjs xport
 // modal?
 //action... api
+//reorg events??
 class NewEvent extends Component {
     constructor(props){
         super(props)
@@ -31,9 +33,9 @@ class NewEvent extends Component {
         this.setState({ form: form })
     }
 
-    // submitEvent = () => {
-    //     this.props.addCat(this.state.form)
-    // }
+    submitEvent = () => {
+        this.props.addEvent(this.state.form)
+    }
 
     render() {
       return (

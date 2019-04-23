@@ -1,46 +1,61 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { allEvents } from "../api"
+
+import { allEvents, createEvent } from '../api'
+
+import NewEvent from '../NewEvent'
 
 class Events extends React.Component {
   constructor(props){
      super(props)
      this.state = {
        error: null,
-       events: [],
+       events: []
      }
-     this.getEvents()
+     this.showEvents
    }
 
+    componentWillMount = () => {
+      this.showEvents()
+  	}
 
-   getEvents = ()=>{
-     allEvents()
-     .then((events)=>{
-       console.log('events', events);
-       this.setState({ events })
-     })
-     .catch((error) => {
-       this.setState({
-         error
-       })
-     })
-   }
+    showEvents = () => {
+      allEvents()
+      .then((events)=>{
+        console.log('events', events);
+        this.setState({ events })
+      })
+      .catch((error) => {
+        this.setState({ error })
+      })
+    }
 
+    handleNewEvent = (newEventInfo) => {
+    	createEvent(newEventInfo)
+        .then(successEvent => {
+          this.showEvents()
+        })
+        .catch((error) => {
+          this.setState({ error })
+        })
+    }
 
   render () {
+    const { events } = this.state
     return (
       <React.Fragment>
-      <div>
-            <h1>Events</h1>
-            {this.state.events.map((evt, index) =>{
-              return(
-              <ul>
-              <li key={index}>
-              {evt.event_name}<br></br>{evt.location_name}<br></br>{evt.activity}<br></br>{evt.level}
-              </li>
+        <div>
+          <h1>Events</h1>
+          {events.map(evt =>{
+            return(
+              <ul key={evt.id}>
+                <li>
+                {evt.event_name}<br></br>{evt.location_name}<br></br>{evt.activity}<br></br>{evt.level}
+                </li>
               </ul>
-            )})}
-            </div>
+          )})}
+          < NewEvent addEvent={this.handleNewEvent}/>
+        </div>
       </React.Fragment>
     );
   }
