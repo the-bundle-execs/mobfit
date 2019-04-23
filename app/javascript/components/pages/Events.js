@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 import { allEvents, createEvent } from '../api'
 
-import NewEvent from '../NewEvent'
+import NewEvent from './pages/NewEvent'
 
 class Events extends React.Component {
   constructor(props){
@@ -31,6 +31,7 @@ class Events extends React.Component {
   newEvent = (newEventInfo) => {
   	createEvent(newEventInfo)
       .then(successEvent => {
+        //props
         this.showEvents()
       })
       .catch((error) => {
@@ -42,7 +43,6 @@ class Events extends React.Component {
     const { events } = this.state
     return (
       <React.Fragment>
-
         <div>
           <h1>Events</h1>
           {events.map(evt =>{
@@ -51,10 +51,8 @@ class Events extends React.Component {
                 <li>
                 {evt.event_name}<br></br>{evt.location_name}<br></br>{evt.activity}<br></br>{evt.date}<br></br>{evt.time}
                 </li>
-
               </ul>
           )})}
-          < NewEvent addEvent={this.newEvent}/>
         </div>
       </React.Fragment>
     );

@@ -1,16 +1,12 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'react-bootstrap'
-//lat long
-//input field
-// modal?
-//action... api
-//reorg events??
-class NewEvent extends Component {
+
+class EventForm extends Component {
     constructor(props){
         super(props)
         this.state = {
             form:{
-              trainer_id: current_user,
+              trainer_id: this.props.current_user,
               event_name: '',
               date: '',
               time: '',
@@ -26,7 +22,7 @@ class NewEvent extends Component {
             }
         }
     }
-//this one works
+
     handleChange = (e) => {
         const { form } = this.state
         form[e.target.name] = e.target.value
@@ -146,4 +142,4 @@ class NewEvent extends Component {
     }
 }
 
-export default NewEvent;
+export default EventForm;
