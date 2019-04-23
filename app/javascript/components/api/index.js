@@ -1,35 +1,19 @@
 const BASE = 'http://localhost:3000'
 
-let allEvents = () => {
-	return fetch(BASE + '/events')
-  .then((response) => { //promise
-		if(response.status === 200){
-      return response.json()
-    } else {
-      throw "Bad Response"
-    }
-  })
-	.catch(e=> alert(e))
-}
+let allEvents = function() {
 
-let createEvent = (newevent) => {
-	return fetch(BASE + '/events', {
-		body: JSON.stringify(newevent),  //stringify the json for fetch
-		headers: {  //sending JSON, expect JSON back; info about the content
-			'Content-Type': 'application/json'
-		},
-		method: "POST"  //correct endpoint invoked on server
-	})
-		.then((response) => { //promise
+	return fetch(BASE + '/events')
+  .then((response) => {
+           	// resp will be whatever you saw on the page localhost:3000/cats, it is the result of our fetch call
 			if(response.status === 200){
-	      return response.json()
-	    } else {
-	      throw "Bad Response"
-	    }
-		})
-		.catch(e=> alert(e))
+        return response.json()
+      } else {
+        throw "Bad Response"
+      }
+    })
+
 }
 
 export  {
-	allEvents, createEvent
+	allEvents
 }

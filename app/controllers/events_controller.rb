@@ -1,22 +1,25 @@
 class EventsController < ApplicationController
-  skip_before_action :verify_authenticity_token
-
   def index
     events = Event.all
       render json: events
   end
 
   def create
-    event = Event.new(event_params)
-    if event.valid?
-      render json: event
-    else
-      render json: event.errors, status: :unprocessable_entity
+    @event = Event.new(event_params)
+
+    respond_to do |format|
+      if @event.save
+        format.html { redirect_to @event, notice: 'event was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @event }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   def new
-    event = Event.new
+    @event = Event.new
   end
 
   def show
@@ -26,10 +29,14 @@ class EventsController < ApplicationController
   end
 
   def update
-    if @event.update(event_params)
-      render json: event
-    else
-      render json: event.errors, status: :unprocessable_entity
+    respond_to do |format|
+      if @event.update(event_params)
+        format.html { redirect_to @event, notice: 'event was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -47,6 +54,6 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      params.require(:event).permit(:event_name, :date, :time, :location_name, :loc_latitude, :loc_longitude, :activity, :level, :max_enrollment, :equipment, :duration, :comments)
+      params.require(:event).permit(:event_name, :date, :time, :location_name, :loc_latitude, :loc_longitude, :activity, :level, :max_enrollment, :equipment, :duration)
     end
 end
