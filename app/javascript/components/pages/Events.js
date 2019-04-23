@@ -1,46 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import { allEvents, createEvent } from '../api'
-
-import NewEvent from './pages/NewEvent'
-
 class Events extends React.Component {
-  constructor(props){
-     super(props)
-     this.state = {
-       error: null,
-       events: []
-     }
-   }
-
-  componentWillMount = () => {
-    this.showEvents()
-	}
-
-  showEvents = () => {
-    allEvents()
-    .then((events)=>{
-      this.setState({ events })
-    })
-    .catch((error) => {
-      this.setState({ error })
-    })
-  }
-
-  newEvent = (newEventInfo) => {
-  	createEvent(newEventInfo)
-      .then(successEvent => {
-        //props
-        this.showEvents()
-      })
-      .catch((error) => {
-        this.setState({ error })
-      })
-  }
-
   render () {
-    const { events } = this.state
+    const { events } = this.props
     return (
       <React.Fragment>
         <div>

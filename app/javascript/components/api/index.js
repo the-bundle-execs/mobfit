@@ -21,6 +21,7 @@ let createEvent = (newevent) => {
 		method: "POST"  //correct endpoint invoked on server
 	})
 		.then((response) => { //promise
+			console.log(response);
 			if(response.status === 200){
 	      return response.json()
 	    } else {
