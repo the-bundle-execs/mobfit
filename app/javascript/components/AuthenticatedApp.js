@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { Button } from 'react-bootstrap'
 
 import { allEvents, createEvent } from './api'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
@@ -49,17 +50,22 @@ class AuthenticatedApp extends React.Component {
           {current_user.is_trainer &&
             <div>
               <h1>Hello {this.props.current_user.username}!</h1>
-              <Link to="/NewEvent">Create New Event</Link>
+              <Button onClick={this.openModal} variant="btn btn-primary btn-lg btn-block" id="submit">Create New Event</Button>
+              <Link to="/event/new/">Create New Event</Link>
+              < Events events={events} />
             </div>
           }
 
           {!current_user.is_trainer &&
-            <h1>Hello {this.props.current_user.username}!</h1>
+            <div>
+              <h1>Hello {this.props.current_user.username}!</h1>
+              < Events events={events} />
+            </div>
           }
 
-        < Events events={events} />
-        <NewEvent addEvent={this.newEvent} user={current_user.id}/>
-
+        < Route path='/event/new/'
+              render={(props) => <NewEvent {...props} addEvent={this.newEvent} user={current_user.id} />}
+        />
         <a rel="nofollow" data-method="delete" href="/users/sign_out">Logout</a>
         </Router>
       </React.Fragment>
