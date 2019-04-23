@@ -20,12 +20,12 @@ let createEvent = (newevent) => {
 		},
 		method: "POST"  //correct endpoint invoked on server
 	})
-		.then((resp) => { //promise
-			if (resp.status === 200 ) {
-				return resp.json()
-			} else {
-				throw 'No can do. Try again.'
-			}
+		.then((response) => { //promise
+			if(response.status === 200){
+	      return response.json()
+	    } else {
+	      throw "Bad Response"
+	    }
 		})
 		.catch(e=> alert(e))
 }

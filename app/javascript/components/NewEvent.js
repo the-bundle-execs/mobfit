@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'react-bootstrap'
-
+//lat long
 //input field
-//condense indexjs xport
 // modal?
 //action... api
 //reorg events??
@@ -11,6 +10,7 @@ class NewEvent extends Component {
         super(props)
         this.state = {
             form:{
+              trainer_id: current_user,
               event_name: '',
               date: '',
               time: '',
@@ -26,7 +26,7 @@ class NewEvent extends Component {
             }
         }
     }
-
+//this one works
     handleChange = (e) => {
         const { form } = this.state
         form[e.target.name] = e.target.value
@@ -34,7 +34,8 @@ class NewEvent extends Component {
     }
 
     submitEvent = () => {
-        this.props.addEvent(this.state.form)
+      const { form } = this.state
+      this.props.addEvent(form)
     }
 
     render() {

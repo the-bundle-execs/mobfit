@@ -12,33 +12,31 @@ class Events extends React.Component {
        error: null,
        events: []
      }
-     this.showEvents
    }
 
-    componentWillMount = () => {
-      this.showEvents()
-  	}
+  componentWillMount = () => {
+    this.showEvents()
+	}
 
-    showEvents = () => {
-      allEvents()
-      .then((events)=>{
-        console.log('events', events);
-        this.setState({ events })
+  showEvents = () => {
+    allEvents()
+    .then((events)=>{
+      this.setState({ events })
+    })
+    .catch((error) => {
+      this.setState({ error })
+    })
+  }
+
+  newEvent = (newEventInfo) => {
+  	createEvent(newEventInfo)
+      .then(successEvent => {
+        this.showEvents()
       })
       .catch((error) => {
         this.setState({ error })
       })
-    }
-
-    handleNewEvent = (newEventInfo) => {
-    	createEvent(newEventInfo)
-        .then(successEvent => {
-          this.showEvents()
-        })
-        .catch((error) => {
-          this.setState({ error })
-        })
-    }
+  }
 
   render () {
     const { events } = this.state
@@ -50,11 +48,11 @@ class Events extends React.Component {
             return(
               <ul key={evt.id}>
                 <li>
-                {evt.event_name}<br></br>{evt.location_name}<br></br>{evt.activity}<br></br>{evt.level}
+                {evt.event_name}<br></br>{evt.location_name}<br></br>{evt.activity}<br></br>{evt.date}<br></br>{evt.time}
                 </li>
               </ul>
           )})}
-          < NewEvent addEvent={this.handleNewEvent}/>
+          < NewEvent addEvent={this.newEvent}/>
         </div>
       </React.Fragment>
     );
