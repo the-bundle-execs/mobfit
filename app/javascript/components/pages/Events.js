@@ -31,7 +31,7 @@ class Events extends React.Component {
     return (
       <React.Fragment>
       <div>
-            <h1>Events</h1>
+            <h1>Other Events in the Area</h1>
             {this.state.events.map((evt, index) =>{
               return(
               <ul>

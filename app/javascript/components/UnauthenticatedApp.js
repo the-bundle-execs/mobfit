@@ -7,18 +7,18 @@ class UnauthenticatedApp extends React.Component {
   render () {
     return (
       <React.Fragment>
-        <Navbar variant="navbar navbar-expand-lg navbar-dark bg-primary">
+          <Navbar variant="navbar navbar-expand-lg navbar-dark bg-primary">
           <Navbar.Brand href="#home">MobFit</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav variant="mr-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#link">Link</Nav.Link>
-            </Nav>
+          <Nav variant="mr-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#link">Link</Nav.Link>
+          </Nav>
           </Navbar.Collapse>
-        </Navbar>;
+          </Navbar>;
 
-        <Button type="button" variant="btn btn-outline-primary">Primary</Button>
+          <Button type="button" href="/users/sign_in" variant="btn btn-outline-primary">Primary</Button>
 
         <h1>Welcome to MobFit!</h1>
         <h4>Please Login to Continue</h4>
