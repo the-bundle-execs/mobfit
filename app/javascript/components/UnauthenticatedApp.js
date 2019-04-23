@@ -3,6 +3,8 @@ import PropTypes from "prop-types"
 import Events from './pages/Events'
 import { Button, Navbar, Nav } from 'react-bootstrap'
 
+
+
 class UnauthenticatedApp extends React.Component {
   render () {
     return (
@@ -18,7 +20,7 @@ class UnauthenticatedApp extends React.Component {
           </Navbar.Collapse>
           </Navbar>;
 
-          <Button type="button" href="/users/sign_in" variant="btn btn-outline-primary">Primary</Button>
+
 
         <h1>Welcome to MobFit!</h1>
         <h4>Please Login to Continue</h4>
