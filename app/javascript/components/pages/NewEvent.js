@@ -49,7 +49,7 @@ class NewEvent extends Component {
               <Form.Label id="event_name">Event Name</Form.Label>
               <Form.Control
                   style={{width: '200px'}}
-                  type="text"
+                  type="date"
                   name="date"
                   onChange={this.handleChange}
                   value={form.date}
@@ -57,7 +57,7 @@ class NewEvent extends Component {
               <Form.Label id="date">Event Date</Form.Label>
               <Form.Control
                   style={{width: '200px'}}
-                  type="text"
+                  type="time"
                   name="time"
                   onChange={this.handleChange}
                   value={form.time}
@@ -81,7 +81,7 @@ class NewEvent extends Component {
               <Form.Label id="location_name">Event Location</Form.Label>
               <Form.Control
                   style={{width: '200px'}}
-                  type="text"
+                  type="number"
                   name="loc_latitude"
                   onChange={this.handleChange}
                   value={form.loc_latitude}
@@ -89,7 +89,7 @@ class NewEvent extends Component {
               <Form.Label id="loc_latitude">Event Latitude</Form.Label>
               <Form.Control
                   style={{width: '200px'}}
-                  type="text"
+                  type="number"
                   name="loc_longitude"
                   onChange={this.handleChange}
                   value={form.loc_longitude}
