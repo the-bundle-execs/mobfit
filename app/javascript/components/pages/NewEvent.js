@@ -38,7 +38,15 @@ class NewEvent extends Component {
       return (
           <React.Fragment>
             <Form>
-                  <Form.Control
+              <Form.Control
+                  style={{width: '200px'}}
+                  type="text"
+                  name="trainer_name"
+                  onChange={this.handleChange}
+                  value={this.props.user.username}
+              />
+              <Form.Label>Trainer Name</Form.Label>
+              <Form.Control
                   style={{width: '200px'}}
                   type="text"
                   name="event_name"

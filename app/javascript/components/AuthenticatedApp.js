@@ -67,13 +67,13 @@ class AuthenticatedApp extends React.Component {
                 </Modal.Header>
 
                 <Modal.Body>
-                  < NewEvent addEvent={this.newEvent} user={current_user.id} />
+                  < NewEvent addEvent={this.newEvent} user={current_user} />
                 </Modal.Body>
 
                 <Modal.Footer>
                   <Button
                   variant="btn btn-sm btn-outline-success"
-                  onClick={this.closeModal}>Save Changes
+                  onClick={this.closeModal}>Close Modal
                   </Button>
                 </Modal.Footer>
               </Modal>
