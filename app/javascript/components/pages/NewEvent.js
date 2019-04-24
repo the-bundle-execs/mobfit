@@ -102,22 +102,6 @@ class NewEvent extends Component {
                   <Form.Label id="location_name">Event Location</Form.Label>
                   <Form.Control
                       style={{width: '200px'}}
-                      type="number"
-                      name="loc_latitude"
-                      onChange={this.handleChange}
-                      value={form.loc_latitude}
-                  />
-                  <Form.Label id="loc_latitude">Event Latitude</Form.Label>
-                  <Form.Control
-                      style={{width: '200px'}}
-                      type="number"
-                      name="loc_longitude"
-                      onChange={this.handleChange}
-                      value={form.loc_longitude}
-                  />
-                  <Form.Label id="loc_longitude">Event Longitude</Form.Label>
-                  <Form.Control
-                      style={{width: '200px'}}
                       type="text"
                       name="activity"
                       onChange={this.handleChange}
