@@ -5,8 +5,16 @@ import Events from './pages/Events'
 import { Button, Navbar, Nav, Jumbotron, Carousel  } from 'react-bootstrap'
 import Logo from './images/mobfit.png'
 import Image from './images/beachDay.jpg'
+import Image1 from './images/forestPic.jpg'
+import Image2 from './images/RopePic.jpg'
 
 import { allEvents} from './api'
+
+import { Route, NavLink, HashRouter, Router} from "react-router-dom";
+
+import AboutUs from "./pages/AboutUs";
+
+
 
 class UnauthenticatedApp extends React.Component {
   constructor(props){
@@ -41,51 +49,41 @@ class UnauthenticatedApp extends React.Component {
           <img src={Logo}className="logo" alt="Logo" />
           </Navbar.Brand>
 
-          <Navbar.Brand href="#home">MobFit</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-          <Nav variant="mr-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">About Us</Nav.Link>
-            <Nav.Link href="/users/sign_in">Login</Nav.Link><br/>
-           <Nav.Link href="/users/sign_up">Sign up</Nav.Link>
+              <Navbar.Brand href="#home">MobFit</Navbar.Brand>
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse id="basic-navbar-nav">
+              <Nav variant="mr-auto">
+              <Nav.Link href="#home">Home</Nav.Link>
+             <Nav.Link href="#about">About Us</Nav.Link>
+              <Nav.Link href="/users/sign_in">Login</Nav.Link><br/>
+             <Nav.Link href="/users/sign_up">Sign up</Nav.Link>
 
-          </Nav>
-          </Navbar.Collapse>
-          </Navbar>;
+              </Nav>
+              </Navbar.Collapse>
+              </Navbar>
 
-        <h1>Welcome to MobFit!</h1>
-       </Jumbotron>
+             <h1 className = "welcome"> Welcome to MobFit!</h1>
+          </Jumbotron>
 
-       <Carousel>
-  <Carousel.Item>
-    <img className= "beach-day" src={Image} alt="First Slide" />
+          <Carousel className = "carousel">
+               <Carousel.Item>
+                 <img className= "beach-day" src={Image} alt="First Slide" />
+               </Carousel.Item>
+      
+              <Carousel.Item>
+                 <img className= "beach-day" src={Image1} alt="Second Slide" />
+             </Carousel.Item>
+             
+             <Carousel.Item>
+                <img className= "beach-day" src={Image2} alt="First Slide" />
+            </Carousel.Item>
+       </Carousel>
+       
 
-    <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-  
-         <img className= "beach-day" src={Image} alt="First Slide" />
-
-    <Carousel.Caption>
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-
-             <img className= "beach-day" src={Image} alt="First Slide" />
-
-    <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-</Carousel>;
-
+      <div className = "aboutus">
+            <AboutUs/>
+      </div>
+      
       </React.Fragment>
     );
   }

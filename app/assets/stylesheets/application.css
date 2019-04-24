@@ -14,10 +14,20 @@
  *= require_self
  */
  
+#landingpage{
+    background-color:white;
+}
+ 
+.welcome{
+    margin-bottom:-1%; 
+    font-style:arial;
+    font-weight:bold;
+}
+ 
 h1, .h1 {
-text-align: center;
+text-align:center;
 font-family: cursive;
-font-size: 30px
+font-size: 50px
 }
 .logo{
     width: 80px;
@@ -27,9 +37,21 @@ font-size: 30px
     margin-top: -120px;
     
 }
- 
+
  .beach-day {
-    width: 600px;
+    width: 650px;
     height: 400px;
-     
  }   
+ 
+ .carousel {
+ left: 500px;
+ right: 0px;
+ }
+ 
+ .aboutus{
+  text-align:center;
+  border:3px purple;
+}
+ 
+ 
+ 
