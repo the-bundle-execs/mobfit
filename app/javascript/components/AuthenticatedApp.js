@@ -7,13 +7,15 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
 import Events from './pages/Events'
 import NewEvent from './pages/NewEvent'
+// import ModalForm from './ModalForm'
 
 class AuthenticatedApp extends React.Component {
   constructor(props){
      super(props)
      this.state = {
        error: null,
-       events: []
+       events: [],
+       show: false
      }
    }
 
@@ -42,31 +44,34 @@ class AuthenticatedApp extends React.Component {
   }
 
   render () {
-    let { events } = this.state
+    let { events, show } = this.state
     let { current_user } = this.props
     return (
       <React.Fragment>
         <Router>
           {current_user.is_trainer &&
             <div>
-              <h1>Hello {this.props.current_user.username}!</h1>
-              <Button onClick={this.openModal} variant="btn btn-primary btn-lg btn-block" id="submit">Create New Event</Button>
-              <Link to="/event/new/">Create New Event</Link>
+              <h1>Hello {current_user.username}!</h1>
+              <Button
+                onClick={() => this.setState({ show: true })}
+                variant="btn btn-primary btn-lg btn-block">
+                Create New Event
+              </Button>
+              < NewEvent
+                addEvent={this.newEvent}
+                show={show}
+                onHide={() => this.setState({ show: false })} user={current_user} />
               < Events events={events} />
             </div>
           }
 
           {!current_user.is_trainer &&
             <div>
-              <h1>Hello {this.props.current_user.username}!</h1>
+              <h1>Hello {current_user.username}!</h1>
               < Events events={events} />
             </div>
           }
-
-        < Route path='/event/new/'
-              render={(props) => <NewEvent {...props} addEvent={this.newEvent} user={current_user.id} />}
-        />
-        <a rel="nofollow" data-method="delete" href="/users/sign_out">Logout</a>
+          <a rel="nofollow" data-method="delete" href="/users/sign_out">Logout</a>
         </Router>
       </React.Fragment>
     );
