@@ -67,11 +67,8 @@ class UnauthenticatedApp extends React.Component {
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src=""
-      alt="Third slide"
-    />
+  
+         <img className= "beach-day" src={Image} alt="First Slide" />
 
     <Carousel.Caption>
       <h3>Second slide label</h3>
@@ -80,11 +77,7 @@ class UnauthenticatedApp extends React.Component {
   </Carousel.Item>
   <Carousel.Item>
 
-    <img
-      className="d-block w-100"
-      src="holder.js/800x400?text=Third slide&bg=20232a"
-      alt="Third slide"
-    />
+             <img className= "beach-day" src={Image} alt="First Slide" />
 
     <Carousel.Caption>
       <h3>Third slide label</h3>
