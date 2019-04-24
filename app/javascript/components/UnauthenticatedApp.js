@@ -78,7 +78,9 @@ class UnauthenticatedApp extends React.Component {
                 <img className= "beach-day" src={Image2} alt="First Slide" />
             </Carousel.Item>
        </Carousel>
-
+        <div>
+          < Events events={events} />
+        </div>
 
       <div className = "aboutus">
             <AboutUs/>
