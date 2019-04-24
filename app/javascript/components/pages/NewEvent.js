@@ -37,9 +37,8 @@ class NewEvent extends Component {
       let { form } = this.state
       return (
           <React.Fragment>
-            <h1>Create New Event</h1>
             <Form>
-              <Form.Control
+                  <Form.Control
                   style={{width: '200px'}}
                   type="text"
                   name="event_name"

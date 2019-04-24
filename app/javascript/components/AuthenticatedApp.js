@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Button } from 'react-bootstrap'
+import { Modal, Button } from 'react-bootstrap'
 
 import { allEvents, createEvent } from './api'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
@@ -13,7 +13,8 @@ class AuthenticatedApp extends React.Component {
      super(props)
      this.state = {
        error: null,
-       events: []
+       events: [],
+       show: false
      }
    }
 
@@ -29,6 +30,14 @@ class AuthenticatedApp extends React.Component {
     .catch((error) => {
       this.setState({ error })
     })
+  }
+
+  openModal = () => {
+    this.setState({ show: true });
+  }
+
+  closeModal = () => {
+    this.setState({ show: false });
   }
 
   newEvent = (newEventInfo) => {
@@ -50,8 +59,25 @@ class AuthenticatedApp extends React.Component {
           {current_user.is_trainer &&
             <div>
               <h1>Hello {this.props.current_user.username}!</h1>
-              <Button onClick={this.openModal} variant="btn btn-primary btn-lg btn-block" id="submit">Create New Event</Button>
-              <Link to="/event/new/">Create New Event</Link>
+              <Button onClick={this.openModal} variant="btn btn-primary btn-lg btn-block">Create New Event</Button>
+
+              <Modal show={this.state.show} onHide={this.closeModal}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Create New Event</Modal.Title>
+                </Modal.Header>
+
+                <Modal.Body>
+                  < NewEvent addEvent={this.newEvent} user={current_user.id} />
+                </Modal.Body>
+
+                <Modal.Footer>
+                  <Button
+                  variant="btn btn-sm btn-outline-success"
+                  onClick={this.closeModal}>Save Changes
+                  </Button>
+                </Modal.Footer>
+              </Modal>
+
               < Events events={events} />
             </div>
           }
