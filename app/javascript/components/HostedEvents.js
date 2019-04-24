@@ -5,13 +5,8 @@ import { CardDeck, Card, Button } from "react-bootstrap"
 class HostedEvents extends React.Component {
   render () {
     const { events, user } = this.props
-
     let hostedEvents = events.filter(event => {
       return user.id === event.trainer_id
-    });
-
-    let noHostedEvents = events.filter(event => {
-      return user.id !== event.trainer_id
     });
 
     return (
