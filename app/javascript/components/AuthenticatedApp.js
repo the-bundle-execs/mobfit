@@ -7,7 +7,6 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
 import Events from './pages/Events'
 import NewEvent from './pages/NewEvent'
-// import ModalForm from './ModalForm'
 
 class AuthenticatedApp extends React.Component {
   constructor(props){

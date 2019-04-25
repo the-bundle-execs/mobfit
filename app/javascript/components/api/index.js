@@ -30,6 +30,23 @@ let createEvent = (newevent) => {
 		.catch(e=> alert(e))
 }
 
+let showEvent = function(id) {
+
+	return fetch(BASE + `/events/${id}`, {// this would be equivalent to going to localhost:3000/cats in your browser. Do that - - what do you see?
+
+		method: "GET"
+	})
+	.then((response) => { //promise
+		if(response.status === 200){
+			return response.json()
+		} else {
+			throw "Bad Response"
+		}
+	})
+	.catch(e=> alert(e))
+}
+
+
 export  {
-	allEvents, createEvent
+	allEvents, createEvent, showEvent
 }
