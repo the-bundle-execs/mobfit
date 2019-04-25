@@ -1,12 +1,15 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { CardDeck, Card, Button } from "react-bootstrap"
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import EventPage from './EventPage'
 
 class Events extends React.Component {
   render () {
     const { events } = this.props
     return (
       <React.Fragment>
+      <Router>
         <div>
           <h1>Other Events in the area:</h1>
           <CardDeck>
@@ -26,12 +29,16 @@ class Events extends React.Component {
                   </Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                <Button variant="light">More Info</Button>
+                <Link to={`/event/${evt.id}`}><button
+                  type="button" className="btn btn-outline-secondary">More Info</button></Link>
+
                 </Card.Footer>
               </Card>
           )})}
           </CardDeck>
+          <Route path="/event/:id" component={EventPage} />
         </div>
+        </Router>
       </React.Fragment>
     );
   }
