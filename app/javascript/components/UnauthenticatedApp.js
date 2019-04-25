@@ -48,7 +48,6 @@ class UnauthenticatedApp extends React.Component {
         <h4>Please Login to Continue</h4>
         <a href="/users/sign_in">Login</a><br/>
         <a href="/users/sign_up">Sign up</a>
-        < Events events = {events}/>
       </React.Fragment>
     );
   }
