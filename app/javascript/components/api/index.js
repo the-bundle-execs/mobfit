@@ -31,12 +31,10 @@ let createEvent = (newevent) => {
 }
 
 let showEvent = function(id) {
-
-	return fetch(BASE + `/events/${id}`, {// this would be equivalent to going to localhost:3000/cats in your browser. Do that - - what do you see?
-
+	return fetch(BASE + `/events/${id}`, {
 		method: "GET"
 	})
-	.then((response) => { //promise
+	.then((response) => {
 		if(response.status === 200){
 			return response.json()
 		} else {
@@ -46,7 +44,13 @@ let showEvent = function(id) {
 	.catch(e=> alert(e))
 }
 
+let deleteEvent = (id) => {
+	return fetch(BASE + `/events/${id}`, {
+		method: "DELETE"
+	})
+	.catch(e=> alert(e))
+}
 
 export  {
-	allEvents, createEvent, showEvent
+	allEvents, createEvent, showEvent, deleteEvent
 }

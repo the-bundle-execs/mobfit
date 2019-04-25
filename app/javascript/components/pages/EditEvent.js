@@ -183,10 +183,10 @@ class EditEvent extends Component {
                   <Col xs={5} md={3}>
                     <Button
                       variant="btn btn-sm btn-outline-warning"
-                      onClick={()=> this.props.removeEvent(event.id)}>Delete {event.event_name}
+                      onClick={()=> this.props.removeEvent(event)}>Delete {event.event_name}
                     </Button>
                   </Col>
-                </Row>
+                  </Row>
               </Form>
             </Container>
           </Modal.Body>

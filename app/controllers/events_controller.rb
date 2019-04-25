@@ -30,6 +30,7 @@ class EventsController < ApplicationController
   end
 
   def update
+    @event = Event.find(params[:id])
     if @event.update(event_params)
       render json: event
     else
@@ -38,17 +39,15 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    @event = Event.find(params[:id])
     @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url }
-      format.json { head :no_content }
-    end
+    # respond_to do |format|
+    #   format.html { redirect_to events_url }
+    #   format.json { head :no_content }
+    # end
   end
 
   private
-    def set_event
-      @event = event.find(params[:id])
-    end
 
     def event_params
       params.require(:event).permit(:event_name, :date, :time, :location_name, :loc_latitude, :loc_longitude, :activity, :level, :max_enrollment, :equipment, :duration, :comments)
