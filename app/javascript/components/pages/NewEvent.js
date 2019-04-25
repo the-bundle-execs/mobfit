@@ -62,7 +62,7 @@ class NewEvent extends Component {
                         type="text"
                         name="trainer_name"
                         onChange={this.handleChange}
-                        value={this.props.user.username}
+                        value={user.username}
                        />
                      </Col>
                      <Col xs={6} md={4}>

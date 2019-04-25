@@ -52,7 +52,10 @@ class AuthenticatedApp extends React.Component {
           {current_user.is_trainer &&
             <div>
               <h1>Hello {current_user.username}!</h1>
-              < HostedEvents events={events} user={current_user}/>
+              < HostedEvents
+                events={events}
+                user={current_user}
+              />
               <Button
                 onClick={() => this.setState({ show: true })}
                 variant="btn btn-primary btn-lg btn-block">
