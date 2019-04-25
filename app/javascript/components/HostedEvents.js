@@ -5,15 +5,8 @@ import { CardDeck, Card, Button } from "react-bootstrap"
 import EditEvent from './pages/EditEvent'
 
 class HostedEvents extends React.Component {
-  constructor(props){
-     super(props)
-     this.state = {
-       show: false,
-     }
-   }
   render () {
     const { events, user } = this.props
-    const { show } = this.state
     let hostedEvents = events.filter(event => {
       return user.id === event.trainer_id
     });
@@ -42,15 +35,9 @@ class HostedEvents extends React.Component {
                     </Card.Text>
                   </Card.Body>
                   <Card.Footer>
-                    <Button
-                      variant="light"
-                      user={user}
-                      event={event}
-                      onClick={() => this.setState({ show: true })}>Edit Hosted Event
-                    </Button>
                     < EditEvent
-                      removeEvent={this.props.removeEvent}         show={show}
-                      onHide={() => this.setState({ show: false })}
+                      removeEvent={this.props.removeEvent}
+                      editEvent={this.props.editEvent}
                       user={user}
                       event={event}
                     />

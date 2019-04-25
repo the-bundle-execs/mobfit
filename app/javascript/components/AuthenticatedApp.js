@@ -1,11 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Button } from 'react-bootstrap'
-import Footer from './Footer'
-import { allEvents, createEvent } from './api'
+
+import { allEvents, createEvent, updateEvent, deleteEvent } from './api'
 
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
-import NavAuth from './NavAuth'
+
 import Events from './pages/Events'
 import NewEvent from './pages/NewEvent'
 import HostedEvents from './HostedEvents'
@@ -44,12 +44,28 @@ class AuthenticatedApp extends React.Component {
       })
   }
 
+  editEvent = (id) => {
+  	updateEvent(id)
+      .then(updatedEvent => {
+        this.showEvents()
+      })
+      .catch((error) => {
+        this.setState({ error })
+      })
+  }
+
+  removeEvent = (id) => {
+    deleteEvent(id)
+    .then(event => {
+      this.showEvents()
+    })
+  }
+
   render () {
     let { events, show } = this.state
     let { current_user } = this.props
     return (
       <React.Fragment>
-        <NavAuth/>
         <Router>
           {current_user.is_trainer &&
             <div>
@@ -57,6 +73,8 @@ class AuthenticatedApp extends React.Component {
               < HostedEvents
                 events={events}
                 user={current_user}
+                removeEvent={this.removeEvent}
+                editEvent={this.editEvent}
               />
               <Button
                 onClick={() => this.setState({ show: true })}
@@ -77,9 +95,8 @@ class AuthenticatedApp extends React.Component {
               < Events events={events} />
             </div>
           }
-
+          <a rel="nofollow" data-method="delete" href="/users/sign_out">Logout</a>
         </Router>
-        <Footer/>
       </React.Fragment>
     );
   }

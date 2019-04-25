@@ -30,7 +30,7 @@ let createEvent = (newevent) => {
 		.catch(e=> alert(e))
 }
 
-let showEvent = function(id) {
+let showEvent = id => {
 	return fetch(BASE + `/events/${id}`, {
 		method: "GET"
 	})
@@ -44,7 +44,21 @@ let showEvent = function(id) {
 	.catch(e=> alert(e))
 }
 
-let deleteEvent = (id) => {
+let updateEvent = id => {
+	return fetch(BASE + `/events/${id}`, {
+		method: "GET"
+	})
+	.then((response) => {
+		if(response.status === 200){
+			return response.json()
+		} else {
+			throw "Bad Response"
+		}
+	})
+	.catch(e=> alert(e))
+}
+
+let deleteEvent = id => {
 	return fetch(BASE + `/events/${id}`, {
 		method: "DELETE"
 	})
@@ -52,5 +66,5 @@ let deleteEvent = (id) => {
 }
 
 export  {
-	allEvents, createEvent, showEvent, deleteEvent
+	allEvents, createEvent, showEvent, updateEvent, deleteEvent
 }

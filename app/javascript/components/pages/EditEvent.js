@@ -5,7 +5,8 @@ class EditEvent extends Component {
   constructor(props){
     super(props)
     this.state = {
-      form:{
+      show: false,
+      formUpdate:{
         event_name: '',
         date: '',
         time: '',
@@ -23,29 +24,35 @@ class EditEvent extends Component {
   }
 
   handleChange = (e) => {
-    const { form } = this.state
-    form[e.target.name] = e.target.value
-    this.setState({ form: form })
+    const { formUpdate } = this.state
+    formUpdate[e.target.name] = e.target.value
+    this.setState({ formUpdate })
   }
 
   submitEvent = () => {
-    const { form } = this.state
-    this.props.addEvent(form)
-    this.props.onHide()
+    const { formUpdate, show } = this.state
+    console.log(formUpdate);
+    this.props.editEvent(this.props.event.id)
+    this.setState({ show: false, formUpdate: formUpdate })
   }
 
   render() {
-    const { form } = this.state
-    const { user, show, event } = this.props
+    const { formUpdate, show } = this.state
+    const { user, event } = this.props
     return (
       <React.Fragment>
+      <Button
+        variant="light"
+        user={user}
+        onClick={() => this.setState({show: true})}>Edit Event
+      </Button>
         <Modal show={show}  size="lg">
           <Modal.Header>
             <div>
             <Button
               style={{float: "right"}}
               variant="btn btn-sm btn-outline-success"
-              onClick={this.props.onHide}>Close
+              onClick={() => this.setState({show: false})}>Close
             </Button>
               <Modal.Title style={{float: "left", width: "760px"}}>Edit {event.event_name}</Modal.Title>
             </div>
@@ -72,7 +79,7 @@ class EditEvent extends Component {
                       type="text"
                       name="event_name"
                       onChange={this.handleChange}
-                      value={form.event_name}
+                      value={formUpdate.event_name}
                      />
                    </Col>
                    <Col xs={6} md={4}>
@@ -82,7 +89,7 @@ class EditEvent extends Component {
                     type="date"
                     name="date"
                     onChange={this.handleChange}
-                    value={form.date}
+                    value={formUpdate.date}
                    />
                    </Col>
                  </Row><br/>
@@ -94,7 +101,7 @@ class EditEvent extends Component {
                       type="time"
                       name="time"
                       onChange={this.handleChange}
-                      value={form.time}
+                      value={formUpdate.time}
                     />
                    </Col>
                    <Col xs={6} md={4}>
@@ -104,7 +111,7 @@ class EditEvent extends Component {
                       type="text"
                       name="duration"
                       onChange={this.handleChange}
-                      value={form.duration}
+                      value={formUpdate.duration}
                      />
                   </Col>
                   <Col xs={6} md={4}>
@@ -114,7 +121,7 @@ class EditEvent extends Component {
                       type="text"
                       name="location_name"
                       onChange={this.handleChange}
-                      value={form.location_name}
+                      value={formUpdate.location_name}
                     />
                   </Col>
                 </Row><br/>
@@ -126,7 +133,7 @@ class EditEvent extends Component {
                       type="text"
                       name="activity"
                       onChange={this.handleChange}
-                      value={form.activity}
+                      value={formUpdate.activity}
                     />
                   </Col>
                   <Col xs={6} md={4}>
@@ -136,7 +143,7 @@ class EditEvent extends Component {
                       type="text"
                       name="level"
                       onChange={this.handleChange}
-                      value={form.level}
+                      value={formUpdate.level}
                     />
                   </Col>
                   <Col xs={6} md={4}>
@@ -146,7 +153,7 @@ class EditEvent extends Component {
                       type="number"
                       name="max_enrollment"
                       onChange={this.handleChange}
-                      value={form.max_enrollment}
+                      value={formUpdate.max_enrollment}
                     />
                   </Col>
                 </Row><br/>
@@ -158,7 +165,7 @@ class EditEvent extends Component {
                         type="text"
                         name="equipment"
                         onChange={this.handleChange}
-                        value={form.equipment}
+                        value={formUpdate.equipment}
                     />
                   </Col>
                   <Col xs={12} md={8}>
@@ -168,25 +175,26 @@ class EditEvent extends Component {
                         type="text"
                         name="comments"
                         onChange={this.handleChange}
-                        value={form.comments}
+                        value={formUpdate.comments}
                     />
                   </Col>
                 </Row><br/>
                 <Row className="show-grid">
-                  <Col xs={13} md={9}>
+                  <Col xs={12} md={8}>
                   <Button
                     onClick={this.submitEvent}
                     variant="btn btn-outline-success" id="submit">
-                    Edit {event.event_name} & Close Modal
+                    Edit & Close
                   </Button>
                   </Col>
-                  <Col xs={5} md={3}>
+                  <Col xs={6} md={4}>
                     <Button
-                      variant="btn btn-sm btn-outline-warning"
-                      onClick={()=> this.props.removeEvent(event)}>Delete {event.event_name}
+                      variant="btn btn-sm btn-outline-danger"
+                      style={{float: 'right'}}
+                      onClick={()=> this.props.removeEvent(event.id)}>Delete {event.event_name}!
                     </Button>
                   </Col>
-                  </Row>
+                </Row>
               </Form>
             </Container>
           </Modal.Body>
