@@ -39,35 +39,23 @@ class EventPage extends React.Component {
 	    const prevMatch = prevProps.match
 	    const{ match } = this.props
 	    if(match.params.id != prevMatch.params.id){
-	      this.setState({eventId: match.params.id})
+
         console.log(match.params.id);
-	    }
 
 
-	  }
+        showEvent(match.params.id)
 
-    // showEvents = () => {
-    //   allEvents()
-    //   .then((events)=>{
-    //     this.setState({ events })
-    //   })
-    //   .catch((error) => {
-    //     this.setState({ error })
-    //   })
-    // }
+        .then((event)=>{
 
+          this.setState({ event })
+        })
 
-  //   setEvent = () => {
-  //     const {eventId, events, event} = this.state
-  //     console.log(events);
-  //     events.map((evt, index) =>{
-  //     if(evt.id === eventId){
-  //       console.log(event)
-  //       this.setState({event : evt})
-  //     }
-  //   })
-  //
-  // }
+        .catch((error) => {
+          this.setState({ error })
+        })
+      }
+      }
+
 
 
   render () {
