@@ -62,19 +62,9 @@ class EventPage extends React.Component {
 
     return (
       <React.Fragment>
-          <Navbar variant="navbar navbar-expand-lg navbar-dark bg-primary">
-          <Navbar.Brand href="#home">MobFit</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-          <Nav variant="mr-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-          </Nav>
-          </Navbar.Collapse>
-          </Navbar>;
 
         <div>
-        <h1>This is the {this.state.event.event_name} Page</h1>
+        <h1>{this.state.event.event_name}</h1>
         </div>
 
 
