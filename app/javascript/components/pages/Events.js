@@ -6,7 +6,7 @@ import EventPage from './EventPage'
 
 class Events extends React.Component {
   render () {
-    const { events } = this.props
+    const { events, user } = this.props
     return (
       <React.Fragment>
       <Router>
@@ -36,7 +36,9 @@ class Events extends React.Component {
               </Card>
           )})}
           </CardDeck>
-          <Route path="/event/:id" component={EventPage} />
+          < Route path='/event/:id'
+                render={(props) => <EventPage {...props} user={user} />}
+          />
         </div>
         </Router>
       </React.Fragment>

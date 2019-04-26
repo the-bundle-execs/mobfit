@@ -44,31 +44,25 @@ let showEvent = id => {
 	.catch(e=> alert(e))
 }
 
-let updateEvent = id => {
-	return fetch(BASE + `/events/${id}`, {
-		body: JSON.stringify(id),
-		headers: {
+let createAttLog = (newloginfo) => {
+	return fetch(BASE + '/attendance_logs', {
+		body: JSON.stringify(newloginfo),  //stringify the json for fetch
+		headers: {  //sending JSON, expect JSON back; info about the content
 			'Content-Type': 'application/json'
 		},
-		method: "PATCH"
+		method: "POST"  //correct endpoint invoked on server
 	})
-	.then((response) => {
-		if(response.status === 200){
-			return response.json()
-		} else {
-			throw "Bad Response"
-		}
-	})
-	.catch(e=> alert(e))
+		.then((response) => { //promise
+			if(response.status === 200){
+	      return response.json()
+	    } else {
+	      throw "Bad Response"
+	    }
+		})
+		.catch(e=> alert(e))
 }
 
-let deleteEvent = id => {
-	return fetch(BASE + `/events/${id}`, {
-		method: "DELETE"
-	})
-	.catch(e=> alert(e))
-}
 
 export  {
-	allEvents, createEvent, showEvent, updateEvent, deleteEvent
+	allEvents, createEvent, showEvent, createAttLog
 }

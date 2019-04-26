@@ -78,18 +78,18 @@ class AuthenticatedApp extends React.Component {
                 addEvent={this.newEvent}
                 show={show}
                 onHide={() => this.setState({ show: false })} user={current_user} />
-              < Events events={events} />
+              < Events events={events} user={current_user} />
             </div>
           }
 
           {!current_user.is_trainer &&
             <div>
-              <h1>Welcome {current_user.username}!</h1>
-              < Events events={events} />
+              <h1>Hello {current_user.username}!</h1>
+              < Events events={events} user={current_user} />
             </div>
           }
-          <a rel="nofollow" data-method="delete" href="/users/sign_out">Logout</a>
-        </Router>
+          </Router>
+        <Footer />
       </React.Fragment>
     );
   }

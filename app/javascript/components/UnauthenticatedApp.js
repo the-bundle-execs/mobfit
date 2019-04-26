@@ -42,16 +42,13 @@ class UnauthenticatedApp extends React.Component {
     let { events } = this.state
     return (
       <React.Fragment>
-      
           <NavUnauth/>
-
           <CarouselSection/>
           < Events events={events} />
-
-      <div className = "aboutus">
+           <div className = "aboutus">
             <AboutUs/>
-      </div>
-      <Footer/>
+           </div>
+          <Footer/>
       </React.Fragment>
     );
   }

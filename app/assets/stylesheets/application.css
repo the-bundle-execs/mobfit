@@ -52,3 +52,20 @@ font-size: 50px
   text-align:center;
   border:3px purple;
 }
+
+.eventinfo{
+  text-align: center;
+  font-style: italic;
+}
+
+.copyrights{
+  text-align: center;
+  color:white;
+}
+
+.footer{
+  border: 1px;
+  background-color: #593196;
+  height: 50px;
+
+}
