@@ -2,6 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import { CardDeck, Card, Button } from "react-bootstrap"
 
+import EditEvent from './pages/EditEvent'
+
 class HostedEvents extends React.Component {
   render () {
     const { events, user } = this.props
@@ -33,7 +35,12 @@ class HostedEvents extends React.Component {
                     </Card.Text>
                   </Card.Body>
                   <Card.Footer>
-                    <Button variant="light">Edit Hosted Event</Button>
+                    < EditEvent
+                      removeEvent={this.props.removeEvent}
+                      editEvent={this.props.editEvent}
+                      user={user}
+                      event={event}
+                    />
                   </Card.Footer>
                 </Card>
               </div>

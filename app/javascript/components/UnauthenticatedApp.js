@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Events from './pages/Events'
+import EventsUnAuth from './pages/EventsUnAuth'
 import CarouselSection from './CarouselSection'
 import { Button, Navbar, Nav, Jumbotron } from 'react-bootstrap'
 import Logo from './images/mobfit.png'
@@ -42,16 +42,17 @@ class UnauthenticatedApp extends React.Component {
     let { events } = this.state
     return (
       <React.Fragment>
-          <NavUnauth/>
-          <CarouselSection/>
-          < Events events={events} />
-           <div className = "aboutus">
-            <AboutUs/>
-           </div>
-          <Footer/>
+        <NavUnauth/>
+        <CarouselSection/>
+        < EventsUnAuth events={events} />
+        <div className = "aboutus">
+          <AboutUs/>
+        </div>
+        <Footer/>
       </React.Fragment>
     );
   }
 }
 
 export default UnauthenticatedApp
+5

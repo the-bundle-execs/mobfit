@@ -5,6 +5,7 @@ class NewEvent extends Component {
   constructor(props){
       super(props)
       this.state = {
+          show: false,
           form:{
             event_name: '',
             date: '',
@@ -31,15 +32,21 @@ class NewEvent extends Component {
   submitEvent = () => {
     const { form } = this.state
     this.props.addEvent(form)
-    this.props.onHide()
+    this.setState({ show: false })
   }
 
     render() {
-      const { form } = this.state
-      const { user, show } = this.props
+      const { form, show } = this.state
+      const { user } = this.props
       return (
-          <React.Fragment>
-            <Modal show={show}  size="lg">
+        <React.Fragment>
+          <Button
+            onClick={() => this.setState({ show: true })}
+            variant="btn btn-primary btn-lg btn-block">
+            Create New Event
+          </Button>
+
+            <Modal show={show} size="lg">
               <Modal.Header>
                 <div>
                 <Button
@@ -62,7 +69,7 @@ class NewEvent extends Component {
                         type="text"
                         name="trainer_name"
                         onChange={this.handleChange}
-                        value={this.props.user.username}
+                        value={user.username}
                        />
                      </Col>
                      <Col xs={6} md={4}>

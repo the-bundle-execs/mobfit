@@ -30,18 +30,41 @@ let createEvent = (newevent) => {
 		.catch(e=> alert(e))
 }
 
-let showEvent = function(id) {
-
-	return fetch(BASE + `/events/${id}`, {// this would be equivalent to going to localhost:3000/cats in your browser. Do that - - what do you see?
-
+let showEvent = id => {
+	return fetch(BASE + `/events/${id}`, {
 		method: "GET"
 	})
-	.then((response) => { //promise
+	.then((response) => {
 		if(response.status === 200){
 			return response.json()
 		} else {
 			throw "Bad Response"
 		}
+	})
+	.catch(e=> alert(e))
+}
+
+let updateEvent = id => {
+	return fetch(BASE + `/events/${id}`, {
+		body: JSON.stringify(id),
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		method: "PATCH"
+	})
+	.then((response) => {
+		if(response.status === 200){
+			return response.json()
+		} else {
+			throw "Bad Response"
+		}
+	})
+	.catch(e=> alert(e))
+}
+
+let deleteEvent = id => {
+	return fetch(BASE + `/events/${id}`, {
+		method: "DELETE"
 	})
 	.catch(e=> alert(e))
 }
@@ -66,5 +89,5 @@ let createAttLog = (newloginfo) => {
 
 
 export  {
-	allEvents, createEvent, showEvent, createAttLog
+	allEvents, createEvent, showEvent, createAttLog, updateEvent, deleteEvent
 }

@@ -1,13 +1,15 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Button } from 'react-bootstrap'
-import Footer from './Footer'
-import { allEvents, createEvent } from './api'
+
+import { allEvents, createEvent, updateEvent, deleteEvent } from './api'
+
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
-import NavAuth from './NavAuth'
+
 import Events from './pages/Events'
 import NewEvent from './pages/NewEvent'
 import HostedEvents from './HostedEvents'
+import Footer from './Footer'
+import NavAuth from './NavAuth'
 
 class AuthenticatedApp extends React.Component {
   constructor(props){
@@ -15,7 +17,6 @@ class AuthenticatedApp extends React.Component {
      this.state = {
        error: null,
        events: [],
-       show: false
      }
    }
 
@@ -43,22 +44,39 @@ class AuthenticatedApp extends React.Component {
       })
   }
 
+  editEvent = (id) => {
+  	updateEvent(id)
+      .then(updatedEvent => {
+        this.showEvents()
+      })
+      .catch((error) => {
+        this.setState({ error })
+      })
+  }
+
+  removeEvent = (id) => {
+    deleteEvent(id)
+    .then(event => {
+      this.showEvents()
+    })
+  }
+
   render () {
     let { events, show } = this.state
     let { current_user } = this.props
     return (
       <React.Fragment>
-        <NavAuth/>
         <Router>
+          <NavAuth />
           {current_user.is_trainer &&
             <div>
-              <h1>Hello {current_user.username}!</h1>
-              < HostedEvents events={events} user={current_user}/>
-              <Button
-                onClick={() => this.setState({ show: true })}
-                variant="btn btn-primary btn-lg btn-block">
-                Create New Event
-              </Button>
+              <h1>Welcome {current_user.username}!</h1>
+              < HostedEvents
+                events={events}
+                user={current_user}
+                removeEvent={this.removeEvent}
+                editEvent={this.editEvent}
+              />
               < NewEvent
                 addEvent={this.newEvent}
                 show={show}
@@ -73,9 +91,8 @@ class AuthenticatedApp extends React.Component {
               < Events events={events} user={current_user} />
             </div>
           }
-
-        </Router>
-        <Footer/>
+          </Router>
+        <Footer />
       </React.Fragment>
     );
   }
