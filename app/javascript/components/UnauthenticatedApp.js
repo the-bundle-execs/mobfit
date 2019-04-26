@@ -13,8 +13,6 @@ import { Route, NavLink, HashRouter, Router} from "react-router-dom";
 
 import AboutUs from "./pages/AboutUs";
 
-
-
 class UnauthenticatedApp extends React.Component {
   constructor(props){
      super(props)

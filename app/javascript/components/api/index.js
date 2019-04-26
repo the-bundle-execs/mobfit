@@ -44,9 +44,9 @@ let showEvent = id => {
 	.catch(e=> alert(e))
 }
 
-let updateEvent = id => {
+let updateEvent = (id, update) => {
 	return fetch(BASE + `/events/${id}`, {
-		body: JSON.stringify(id),
+		body: JSON.stringify(update),
 		headers: {
 			'Content-Type': 'application/json'
 		},
@@ -71,11 +71,11 @@ let deleteEvent = id => {
 
 let createAttLog = (newloginfo) => {
 	return fetch(BASE + '/attendance_logs', {
-		body: JSON.stringify(newloginfo),  //stringify the json for fetch
-		headers: {  //sending JSON, expect JSON back; info about the content
+		body: JSON.stringify(newloginfo),
+		headers: {
 			'Content-Type': 'application/json'
 		},
-		method: "POST"  //correct endpoint invoked on server
+		method: "POST"
 	})
 		.then((response) => { //promise
 			if(response.status === 200){
@@ -86,7 +86,6 @@ let createAttLog = (newloginfo) => {
 		})
 		.catch(e=> alert(e))
 }
-
 
 export  {
 	allEvents, createEvent, showEvent, createAttLog, updateEvent, deleteEvent

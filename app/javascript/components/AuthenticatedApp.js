@@ -44,8 +44,8 @@ class AuthenticatedApp extends React.Component {
       })
   }
 
-  editEvent = (id) => {
-  	updateEvent(id)
+  editEvent = (id, update) => {
+    updateEvent(id, update)
       .then(updatedEvent => {
         this.showEvents()
       })
