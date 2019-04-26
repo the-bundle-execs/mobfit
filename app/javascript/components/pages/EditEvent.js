@@ -7,13 +7,11 @@ class EditEvent extends Component {
     this.state = {
       show: false,
       formUpdate:{
-        event_name: 'props.event.event_name',
-        date: 'props.event.date',
+        event_name: '',
+        date: '',
         time: '',
         duration: '',
         location_name: '',
-        loc_latitude: '',
-        loc_longitude: '',
         activity: '',
         level: '',
         max_enrollment: '',
@@ -25,15 +23,15 @@ class EditEvent extends Component {
 
   handleChange = (e) => {
     const { formUpdate } = this.state
+    console.log(e.target.name, e.target.value);
     formUpdate[e.target.name] = e.target.value
     this.setState({ formUpdate })
   }
 
   submitEvent = () => {
     const { formUpdate, show } = this.state
-    // console.log(formUpdate);
     this.props.editEvent(this.props.event.id)
-    this.setState({ show: false, formUpdate: formUpdate })
+    this.setState({ show: false, formUpdate })
   }
 
   render() {
@@ -79,7 +77,7 @@ class EditEvent extends Component {
                       type="text"
                       name="event_name"
                       onChange={this.handleChange}
-                      value={formUpdate.event_name}
+                      value={event.event_name}
                      />
                    </Col>
                    <Col xs={6} md={4}>
@@ -89,7 +87,7 @@ class EditEvent extends Component {
                     type="date"
                     name="date"
                     onChange={this.handleChange}
-                    value={formUpdate.date}
+                    value={event.date}
                    />
                    </Col>
                  </Row><br/>
@@ -101,7 +99,7 @@ class EditEvent extends Component {
                       type="time"
                       name="time"
                       onChange={this.handleChange}
-                      value={formUpdate.time}
+                      value={event.time}
                     />
                    </Col>
                    <Col xs={6} md={4}>
@@ -111,7 +109,7 @@ class EditEvent extends Component {
                       type="text"
                       name="duration"
                       onChange={this.handleChange}
-                      value={formUpdate.duration}
+                      value={event.duration}
                      />
                   </Col>
                   <Col xs={6} md={4}>
@@ -183,7 +181,7 @@ class EditEvent extends Component {
                   <Col xs={12} md={8}>
                   <Button
                     onClick={this.submitEvent}
-                    variant="btn btn-outline-success" id="submit">
+                    variant="btn btn-outline-success">
                     Edit & Close
                   </Button>
                   </Col>
