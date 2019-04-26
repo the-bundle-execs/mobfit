@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
-      render json: @events
+    render json: @events
   end
 
   def create
@@ -30,7 +30,6 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    # byebug
     if @event.update(event_params)
       @event.save
       render json: @event
@@ -45,8 +44,7 @@ class EventsController < ApplicationController
   end
 
   private
-
     def event_params
-      params.require(:event).permit(:event_name, :date, :time, :location_name, :loc_latitude, :loc_longitude, :activity, :level, :max_enrollment, :equipment, :duration, :comments)
+      params.fetch(:event, {}).permit(:event_name, :date, :time, :location_name, :activity, :level, :max_enrollment, :equipment, :duration)
     end
 end

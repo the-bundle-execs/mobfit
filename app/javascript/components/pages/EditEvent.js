@@ -7,32 +7,29 @@ class EditEvent extends Component {
     this.state = {
       show: false,
       formUpdate:{
-        event_name: '',
-        date: '',
-        time: '',
-        duration: '',
-        location_name: '',
-        loc_latitude: '',
-        loc_longitude: '',
-        activity: '',
-        level: '',
-        max_enrollment: '',
-        equipment: '',
-        comments: ''
+        event_name: this.props.event.event_name,
+        date: this.props.event.date,
+        time: this.props.event.time,
+        duration: this.props.event.duration,
+        location_name: this.props.event.location_name,
+        activity: this.props.event.activity,
+        level: this.props.event.level,
+        max_enrollment: this.props.event.max_enrollment,
+        equipment: this.props.event.equipment,
+        comments: this.props.event.comments
       }
     }
   }
 
   handleChange = (e) => {
     const { formUpdate } = this.state
-    console.log(e.target.name, e.target.value);
     formUpdate[e.target.name] = e.target.value
     this.setState({ formUpdate })
   }
 
   submitEvent = () => {
     const { formUpdate, show } = this.state
-    this.props.editEvent(this.props.event.id)
+    this.props.editEvent(this.props.event.id, formUpdate)
     this.setState({ show: false, formUpdate })
   }
 
@@ -69,7 +66,7 @@ class EditEvent extends Component {
                       type="text"
                       name="trainer_name"
                       onChange={this.handleChange}
-                      value={user.username}
+                      value={user.username || ''}
                      />
                    </Col>
                    <Col xs={6} md={4}>
@@ -79,7 +76,7 @@ class EditEvent extends Component {
                       type="text"
                       name="event_name"
                       onChange={this.handleChange}
-                      value={event.event_name}
+                      value={formUpdate.event_name || ''}
                      />
                    </Col>
                    <Col xs={6} md={4}>
@@ -89,7 +86,7 @@ class EditEvent extends Component {
                     type="date"
                     name="date"
                     onChange={this.handleChange}
-                    value={event.date}
+                    value={formUpdate.date || ''}
                    />
                    </Col>
                  </Row><br/>
@@ -101,7 +98,7 @@ class EditEvent extends Component {
                       type="time"
                       name="time"
                       onChange={this.handleChange}
-                      value={event.time}
+                      value={formUpdate.time || ''}
                     />
                    </Col>
                    <Col xs={6} md={4}>
@@ -111,7 +108,7 @@ class EditEvent extends Component {
                       type="text"
                       name="duration"
                       onChange={this.handleChange}
-                      value={event.duration}
+                      value={formUpdate.duration || ''}
                      />
                   </Col>
                   <Col xs={6} md={4}>
@@ -121,7 +118,7 @@ class EditEvent extends Component {
                       type="text"
                       name="location_name"
                       onChange={this.handleChange}
-                      value={formUpdate.location_name}
+                      value={formUpdate.location_name || ''}
                     />
                   </Col>
                 </Row><br/>
@@ -133,7 +130,7 @@ class EditEvent extends Component {
                       type="text"
                       name="activity"
                       onChange={this.handleChange}
-                      value={formUpdate.activity}
+                      value={formUpdate.activity || ''}
                     />
                   </Col>
                   <Col xs={6} md={4}>
@@ -143,7 +140,7 @@ class EditEvent extends Component {
                       type="text"
                       name="level"
                       onChange={this.handleChange}
-                      value={formUpdate.level}
+                      value={formUpdate.level || ''}
                     />
                   </Col>
                   <Col xs={6} md={4}>
@@ -153,7 +150,7 @@ class EditEvent extends Component {
                       type="number"
                       name="max_enrollment"
                       onChange={this.handleChange}
-                      value={formUpdate.max_enrollment}
+                      value={formUpdate.max_enrollment || ''}
                     />
                   </Col>
                 </Row><br/>
@@ -165,7 +162,7 @@ class EditEvent extends Component {
                         type="text"
                         name="equipment"
                         onChange={this.handleChange}
-                        value={formUpdate.equipment}
+                        value={formUpdate.equipment || ''}
                     />
                   </Col>
                   <Col xs={12} md={8}>
@@ -175,7 +172,7 @@ class EditEvent extends Component {
                         type="text"
                         name="comments"
                         onChange={this.handleChange}
-                        value={formUpdate.comments}
+                        value={formUpdate.comments || ''}
                     />
                   </Col>
                 </Row><br/>

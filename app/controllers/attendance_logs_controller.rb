@@ -7,8 +7,6 @@ class AttendanceLogsController < ApplicationController
     render json: attendance_logs
   end
 
-  # GET /attendance_logs/1
-
   def show
   end
 
@@ -31,7 +29,7 @@ class AttendanceLogsController < ApplicationController
     else
       render json: attendance_log.errors, status: :unprocessable_entity
     end
-    
+
   end
 
 
@@ -44,10 +42,10 @@ class AttendanceLogsController < ApplicationController
   def destroy
     @attendance_log = AttendanceLog.find(params[:id])
     @attendance_log.destroy
-    respond_to do |format|
-      format.html { redirect_to attendance_logs_url, notice: 'Attendance log was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    # respond_to do |format|
+    #   format.html { redirect_to attendance_logs_url, notice: 'Attendance log was successfully destroyed.' }
+    #   format.json { head :no_content }
+    # end
   end
 
   private
