@@ -7,8 +7,8 @@ class EditEvent extends Component {
     this.state = {
       show: false,
       formUpdate:{
-        event_name: '',
-        date: '',
+        event_name: 'props.event.event_name',
+        date: 'props.event.date',
         time: '',
         duration: '',
         location_name: '',
@@ -31,7 +31,7 @@ class EditEvent extends Component {
 
   submitEvent = () => {
     const { formUpdate, show } = this.state
-    console.log(formUpdate);
+    // console.log(formUpdate);
     this.props.editEvent(this.props.event.id)
     this.setState({ show: false, formUpdate: formUpdate })
   }

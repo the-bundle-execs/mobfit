@@ -1,6 +1,5 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Button } from 'react-bootstrap'
 
 import { allEvents, createEvent, updateEvent, deleteEvent } from './api'
 
@@ -16,7 +15,6 @@ class AuthenticatedApp extends React.Component {
      this.state = {
        error: null,
        events: [],
-       show: false
      }
    }
 
@@ -76,11 +74,6 @@ class AuthenticatedApp extends React.Component {
                 removeEvent={this.removeEvent}
                 editEvent={this.editEvent}
               />
-              <Button
-                onClick={() => this.setState({ show: true })}
-                variant="btn btn-primary btn-lg btn-block">
-                Create New Event
-              </Button>
               < NewEvent
                 addEvent={this.newEvent}
                 show={show}
