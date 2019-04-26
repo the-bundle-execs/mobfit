@@ -12,8 +12,6 @@ class NewEvent extends Component {
             time: '',
             duration: '',
             location_name: '',
-            loc_latitude: '',
-            loc_longitude: '',
             activity: '',
             level: '',
             max_enrollment: '',
@@ -52,7 +50,7 @@ class NewEvent extends Component {
                 <Button
                   style={{float: "right"}}
                   variant="btn btn-sm btn-outline-success"
-                  onClick={this.props.onHide}>Close
+                  onClick={() => this.setState({ show: false })}>Close
                 </Button>
                   <Modal.Title style={{float: "left", width: "760px"}}>Create New Event for {user.username}</Modal.Title>
                 </div>

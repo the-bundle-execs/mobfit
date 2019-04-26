@@ -46,8 +46,8 @@ class EventPage extends React.Component {
         const {event_id} = this.state
         const {user_id} = user.id
         let attributes = {event_id: event_id, user_id: user_id}
-        console.log(event_id);
-        console.log(this.props.user.id);
+        // console.log(event_id);
+        // console.log(this.props.user.id);
         createAttLog(attributes)
         .catch((error) => {
           this.setState({ error })
@@ -79,7 +79,7 @@ class EventPage extends React.Component {
           </ul>
         </div>
         <h2>{user.username}</h2>
-        <button type="button" onClick={this.att_log()} className="btn btn-outline-success">Sign up for this Event</button>
+        <button type="button" onClick={this.att_log} className="btn btn-outline-success">Sign up for this Event</button>
       </React.Fragment>
     );
   }
