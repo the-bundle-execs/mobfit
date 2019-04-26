@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Button, Navbar, Nav } from 'react-bootstrap'
-import { allEvents, showEvent} from '../api'
+import { allEvents, showEvent, createAttLog } from '../api'
 
 class EventPage extends React.Component {
   constructor(props){
@@ -11,20 +11,20 @@ class EventPage extends React.Component {
        event: '',
        events:[],
        error: null,
-       eventId: match.params.id
+       event_id: match.params.id,
      }
    }
 
 
 
    componentWillMount = () => {
-     const {eventId} = this.state
-     console.log(eventId);
+     const {event_id} = this.state
 
-     showEvent(eventId)
+
+     showEvent(event_id)
 
      .then((event)=>{
-       console.log(event);
+
        this.setState({ event })
      })
 
@@ -34,13 +34,13 @@ class EventPage extends React.Component {
 
    }
 
-   componentDidUpdate(prevProps){
-     const {eventId} = this.state
+   componentDidUpdate = (prevProps) => {
+     const {event_id} = this.state
 	    const prevMatch = prevProps.match
 	    const{ match } = this.props
 	    if(match.params.id != prevMatch.params.id){
 
-        console.log(match.params.id);
+
 
 
         showEvent(match.params.id)
@@ -56,16 +56,41 @@ class EventPage extends React.Component {
       }
       }
 
+      att_log = (newattlog) => {
+        const {user} = this.props
+        const {event_id} = this.state
+        const {user_id} = user.id
+        let attributes = {event_id: event_id, user_id: user_id}
+
+        console.log(event_id);
+        console.log(this.props.user.id);
+
+        createAttLog(attributes)
+
+        .catch((error) => {
+          this.setState({ error })
+        })
+
+
+
+      }
+
+      // <div class="alert alert-dismissible alert-success">
+      // <button type="button" class="close" data-dismiss="alert">&times;</button>
+      // <strong>Well done!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.
+      // </div>
 
 
   render () {
-
+    const {user} = this.props
     return (
       <React.Fragment>
 
         <div>
         <h1>{this.state.event.event_name}</h1>
         </div>
+        <h2>{user.username}</h2>
+        <button type="button" onClick={this.att_log()} className="btn btn-outline-success">Sign up for this Event</button>
 
 
 

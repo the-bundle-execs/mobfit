@@ -46,7 +46,25 @@ let showEvent = function(id) {
 	.catch(e=> alert(e))
 }
 
+let createAttLog = (newloginfo) => {
+	return fetch(BASE + '/attendance_logs', {
+		body: JSON.stringify(newloginfo),  //stringify the json for fetch
+		headers: {  //sending JSON, expect JSON back; info about the content
+			'Content-Type': 'application/json'
+		},
+		method: "POST"  //correct endpoint invoked on server
+	})
+		.then((response) => { //promise
+			if(response.status === 200){
+	      return response.json()
+	    } else {
+	      throw "Bad Response"
+	    }
+		})
+		.catch(e=> alert(e))
+}
+
 
 export  {
-	allEvents, createEvent, showEvent
+	allEvents, createEvent, showEvent, createAttLog
 }
