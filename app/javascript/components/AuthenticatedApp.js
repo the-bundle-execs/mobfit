@@ -8,6 +8,8 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import Events from './pages/Events'
 import NewEvent from './pages/NewEvent'
 import HostedEvents from './HostedEvents'
+import Footer from './Footer'
+import NavAuth from './NavAuth'
 
 class AuthenticatedApp extends React.Component {
   constructor(props){
@@ -65,6 +67,7 @@ class AuthenticatedApp extends React.Component {
     return (
       <React.Fragment>
         <Router>
+          <NavAuth />
           {current_user.is_trainer &&
             <div>
               <h1>Welcome {current_user.username}!</h1>

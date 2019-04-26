@@ -29,15 +29,11 @@ class Events extends React.Component {
                   </Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                <Link to={`/event/${evt.id}`}><button
-                  type="button" className="btn btn-outline-secondary">More Info</button></Link>
+                  <Button id="submit" href="/users/sign_up" variant="btn btn-outline-secondary">Sign Up For More Info</Button>
                 </Card.Footer>
               </Card>
           )})}
           </CardDeck>
-          < Route path='/event/:id'
-                render={(props) => <EventPage {...props} user={user} />}
-          />
         </div>
         </Router>
       </React.Fragment>
