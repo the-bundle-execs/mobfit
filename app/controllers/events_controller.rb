@@ -30,6 +30,7 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
+    # byebug
     if @event.update(event_params)
       @event.save
       render json: @event

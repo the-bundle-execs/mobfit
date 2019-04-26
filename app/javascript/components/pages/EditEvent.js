@@ -12,6 +12,8 @@ class EditEvent extends Component {
         time: '',
         duration: '',
         location_name: '',
+        loc_latitude: '',
+        loc_longitude: '',
         activity: '',
         level: '',
         max_enrollment: '',

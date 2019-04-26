@@ -46,7 +46,11 @@ let showEvent = id => {
 
 let updateEvent = id => {
 	return fetch(BASE + `/events/${id}`, {
-		method: "GET"
+		body: JSON.stringify(id),
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		method: "PATCH"
 	})
 	.then((response) => {
 		if(response.status === 200){
