@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 import { allEvents, createEvent, updateEvent, deleteEvent } from './api'
 
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
-
+import RegisteredEvents from './RegisteredEvents'
 import Events from './pages/Events'
 import NewEvent from './pages/NewEvent'
 import HostedEvents from './HostedEvents'
@@ -88,6 +88,7 @@ class AuthenticatedApp extends React.Component {
           {!current_user.is_trainer &&
             <div>
               <h1>Hello {current_user.username}!</h1>
+              < RegisteredEvents events={events} user={current_user}/>
               < Events events={events} user={current_user} />
             </div>
           }

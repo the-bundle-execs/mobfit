@@ -12,6 +12,7 @@ class EventPage extends React.Component {
        events:[],
        error: null,
        event_id: match.params.id,
+       att_log_save: false
      }
    }
 
@@ -33,11 +34,14 @@ class EventPage extends React.Component {
 	    if(match.params.id != prevMatch.params.id){
         showEvent(match.params.id)
         .then((event)=>{
+          console.log(event);
           this.setState({ event })
+          this.setState({event_id: match.params.id})
         })
         .catch((error) => {
           this.setState({ error })
         })
+
       }
     }
 
@@ -45,23 +49,27 @@ class EventPage extends React.Component {
         const {user} = this.props
         const {event_id} = this.state
         const {user_id} = user.id
-        let attributes = {event_id: event_id, user_id: user_id}
         console.log(event_id);
-        console.log(this.props.user.id);
+        let attributes = {event_id: event_id, user_id: user_id}
         createAttLog(attributes)
+
+        // .then((att_log_save) =>{
+        //   this.setstate({att_log_save: true})
+        //           console.log(att_log_save);
+        // })
+
         .catch((error) => {
           this.setState({ error })
         })
+
+
       }
 
-      // <div class="alert alert-dismissible alert-success">
-      // <button type="button" class="close" data-dismiss="alert">&times;</button>
-      // <strong>Well done!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.
-      // </div>
 
 
   render () {
     const {user} = this.props
+    const {att_log_save} = this.state
     return (
       <React.Fragment>
         <div className= "eventinfo">
@@ -79,7 +87,7 @@ class EventPage extends React.Component {
           </ul>
         </div>
         <h2>{user.username}</h2>
-        <button type="button" onClick={this.att_log()} className="btn btn-outline-success">Sign up for this Event</button>
+        <button  type="button" onClick={this.att_log} className="btn btn-outline-success">Sign up for this Event</button>
       </React.Fragment>
     );
   }
