@@ -57,16 +57,15 @@ class EventPage extends React.Component {
       }
 
 
-
   render () {
 
     return (
       <React.Fragment>
 
-        <div>
-        <h1>{this.state.event.event_name}</h1>
+        <div className= "eventinfo">
+          <h2>{this.state.event.event_name}</h2>
+            
         </div>
-
 
 
       </React.Fragment>
