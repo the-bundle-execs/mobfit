@@ -21,7 +21,7 @@ class NavAuth extends React.Component {
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav variant="mr-auto">
                 <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link rel="nofollow" data-method="delete" href="/users/sign_out">Logout</Nav.Link><br/>
+                <Nav.Link rel="nofollow" data-method="delete"href="/users/sign_out">Logout</Nav.Link><br/>
 
                 </Nav>
                 </Navbar.Collapse>

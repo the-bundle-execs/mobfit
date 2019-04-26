@@ -86,12 +86,12 @@ class EventPage extends React.Component {
     return (
       <React.Fragment>
 
-        <div>
-        <h1>{this.state.event.event_name}</h1>
+        <div className= "eventinfo">
+          <h2>{this.state.event.event_name}</h2>
+
         </div>
         <h2>{user.username}</h2>
         <button type="button" onClick={this.att_log()} className="btn btn-outline-success">Sign up for this Event</button>
-
 
 
       </React.Fragment>
