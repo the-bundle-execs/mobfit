@@ -63,7 +63,7 @@ class AuthenticatedApp extends React.Component {
 
   render () {
     let { events, show } = this.state
-    let { current_user } = this.props
+    let { google_maps_api_key, current_user } = this.props
     return (
       <React.Fragment>
         <Router>
@@ -80,8 +80,13 @@ class AuthenticatedApp extends React.Component {
               < NewEvent
                 addEvent={this.newEvent}
                 show={show}
-                onHide={() => this.setState({ show: false })} user={current_user} />
-              < Events events={events} user={current_user} />
+                onHide={() => this.setState({ show: false })} user={current_user}
+              />
+              < Events
+                events={events}
+                user={current_user}
+                google_maps_api_key={google_maps_api_key}
+              />
             </div>
           }
 

@@ -64,7 +64,7 @@ class EventPage extends React.Component {
 
 
   render () {
-    const {user} = this.props
+    const {user, google_maps_api_key} = this.props
     return (
       <React.Fragment>
         <Container>
@@ -85,7 +85,7 @@ class EventPage extends React.Component {
               <button type="button" onClick={this.att_log} className="btn btn-outline-success">Sign up for this Event</button>
             </Col>
             <Col xs={9} md={6}>
-              < Map />
+              < Map google_maps_api_key={google_maps_api_key}/>
             </Col>
           </Row><br />
         </Container>

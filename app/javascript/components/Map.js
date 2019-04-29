@@ -6,7 +6,7 @@ class Map extends React.Component {
     return (
       <div style={{width: '100%', height: '300px'}}>
         <GoogleMap
-          bootstrapURLKeys={this.props.google_maps_api_key}
+          bootstrapURLKeys={{key: this.props.google_maps_api_key}}
           center={[32.7096298,-117.1602029]}
           zoom={12}
         >
