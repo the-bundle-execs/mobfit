@@ -15,7 +15,6 @@ class HostedEvents extends React.Component {
     return (
       <React.Fragment>
         <h1>Hosted Events</h1>
-        < Map />
         {hostedEvents.length === 0 &&
           <h4 key={user.id}>You are not scheduled to host any events.</h4>
         }

@@ -1,7 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Button, Navbar, Nav } from 'react-bootstrap'
+import { Button, Navbar, Nav, Container, Row, Col } from 'react-bootstrap'
+
 import { allEvents, showEvent, createAttLog } from '../api'
+import Map from '../Map'
+
 
 class EventPage extends React.Component {
   constructor(props){
@@ -64,22 +67,28 @@ class EventPage extends React.Component {
     const {user} = this.props
     return (
       <React.Fragment>
-        <div className= "eventinfo">
-          <h2>{this.state.event.event_name}</h2>
-          <ul>
-            <h5>Date: {this.state.event.date}</h5>
-            <h5>Time: {this.state.event.time}</h5>
-            <h5>Duration: {this.state.event.duration}</h5>
-            <h5>Location: {this.state.event.location_name}</h5>
-            <h5>Activity: {this.state.event.activity}</h5>
-            <h5>Intensity: {this.state.event.level}</h5>
-            <h5>Enrolled: {this.state.event.max_enrollment}</h5>
-            <h5>You will need: {this.state.event.equipment}</h5>
-            <h5>Additional info: {this.state.event.comments}</h5>
-          </ul>
-        </div>
-        <h2>{user.username}</h2>
-        <button type="button" onClick={this.att_log} className="btn btn-outline-success">Sign up for this Event</button>
+        <Container>
+          <Row className="show-grid">
+            <Col xs={9} md={6}>
+              <h2>{this.state.event.event_name}</h2>
+              <ul>
+                <h5>Date: {this.state.event.date}</h5>
+                <h5>Time: {this.state.event.time}</h5>
+                <h5>Duration: {this.state.event.duration}</h5>
+                <h5>Location: {this.state.event.location_name}</h5>
+                <h5>Activity: {this.state.event.activity}</h5>
+                <h5>Intensity: {this.state.event.level}</h5>
+                <h5>Enrollment Limit: {this.state.event.max_enrollment}</h5>
+                <h5>Please Bring: {this.state.event.equipment}</h5>
+                <h5>Additional info: {this.state.event.comments}</h5>
+              </ul>
+              <button type="button" onClick={this.att_log} className="btn btn-outline-success">Sign up for this Event</button>
+            </Col>
+            <Col xs={9} md={6}>
+              < Map />
+            </Col>
+          </Row><br />
+        </Container>
       </React.Fragment>
     );
   }
