@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { CardDeck, Card, Button } from "react-bootstrap"
 
 import EditEvent from './pages/EditEvent'
+import Map from './Map'
 
 class HostedEvents extends React.Component {
   render () {
@@ -14,6 +15,7 @@ class HostedEvents extends React.Component {
     return (
       <React.Fragment>
         <h1>Hosted Events</h1>
+        < Map />
         {hostedEvents.length === 0 &&
           <h4 key={user.id}>You are not scheduled to host any events.</h4>
         }
