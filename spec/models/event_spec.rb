@@ -1,6 +1,28 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
+
+  let(:user){User.create(email:'jim@gym.com', username: "jim", password: '123456')}
+  let(:event){Event.create(event_name: 'Yoga', date: '3/22/2020', time: '2pm', location_name: 'balboa park', activity: 'yoga', level: 'beginner', max_enrollment: 20, equipment: 'yoga mat', duration: '1hour', trainer: user)}
+
+  it "should be a valid event" do
+      expect(event.valid?).to be_truthy
+  end
+
+  describe "attendance check" do
+    let(:user_2){User.create(email:'jim@gym.com', username: "jim", password: '123456')}
+    let!(:log){AttendanceLog.create(user: user, event: event)}
+
+    it "should report true for user attending event" do
+      expect(event.attending?(user)).to be_truthy
+    end
+
+    it "should report false for user not attending event" do
+      expect(event.attending?(user_2)).to be_falsy
+    end
+
+  end
+
   it "should validate event name" do
     event = Event.create
     expect(event.errors[:event_name]).to_not be_empty
@@ -26,26 +48,6 @@ RSpec.describe Event, type: :model do
     expect(event.errors[:location_name]).to_not be_empty
   end
 
-  it "should validate loc_latitude" do
-    event = Event.create
-    expect(event.errors[:loc_latitude]).to_not be_empty
-  end
-
-  it "loc_latitude should be entered as decimal" do
-    event = Event.create(loc_latitude: "12.34")
-    expect(event.errors[:loc_latitude]).to_not be_empty
-  end
-
-  it "should validate loc_longitude" do
-    event = Event.create
-    expect(event.errors[:loc_longitude]).to_not be_empty
-  end
-
-  it "loc_latitude should be entered as decimal" do
-  event = Event.create(loc_longitude: "12.34")
-  expect(event.errors[:loc_longitude]).to_not be_empty
-  end
-
   it "should validate activity" do
     event = Event.create
     expect(event.errors[:activity]).to_not be_empty
@@ -66,23 +68,13 @@ RSpec.describe Event, type: :model do
     expect(event.errors[:max_enrollment]).to_not be_empty
   end
 
-  it "should validate max enrollment as an integer" do
-    event = Event.create(max_enrollment: "15")
-    expect(event.errors[:max_enrollment]).to_not be_empty
-  end
-
-  it "should validate max enrollment as an whole number" do
-    event = Event.create(max_enrollment: 15.43)
-    expect(event.errors[:max_enrollment]).to_not be_empty
-  end
-
-  it "should validate max enrollment as a postive number" do
-    event = Event.create(max_enrollment: -1)
-    expect(event.errors[:max_enrollment]).to_not be_empty
-  end
-
-  it "should validate trainer_id" do
-    event = Event.create(trainer_id: "letter")
-    expect(event.errors[:trainer_id]).to_not be_empty
-  end
+  # it "should validate max enrollment as an integer" do
+  #   event = Event.create(max_enrollment: "15")
+  #   expect(event.errors[:max_enrollment]).to_not be_empty
+  # end
+  #
+  # it "should validate max enrollment as a postive number" do
+  #   event = Event.create(max_enrollment: -1)
+  #   expect(event.errors[:max_enrollment]).to_not be_empty
+  # end
 end

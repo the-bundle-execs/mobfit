@@ -70,7 +70,6 @@ class EventPage extends React.Component {
 
   render () {
     const {user} = this.props
-    const {att_log_save} = this.state
     return (
       <React.Fragment>
         <div className= "eventinfo">

@@ -4,24 +4,22 @@ import { CardDeck, Card, Button } from "react-bootstrap"
 
 
 
+
 class RegisteredEvents extends React.Component {
+
+
+
   render () {
+    const { events, user, attendance_logs } = this.props
 
-
-    const { events, user } = this.props
-    console.log(events);
-    let registeredEvents = events.filter(event => {
-      user.attendance_logs.id === event.attendance_logs.id
-
-    });
     console.log(user);
     console.log(events);
-    console.log(user.attendance_logs);
-    console.log(event.attendance_logs);
-    console.log(registeredEvents);
+    console.log('attendance_logs', attendance_logs);
+    const registeredEvents = events.filter(event => event.is_attending);
+    console.log("registeredEvents", registeredEvents);
     return (
       <React.Fragment>
-        <h1>Hosted Events</h1>
+        <h1>Registered Events</h1>
         {registeredEvents.length === 0 &&
           <h4 key={user.id}>You are not registered for any events.</h4>
         }

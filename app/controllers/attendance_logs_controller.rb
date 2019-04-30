@@ -1,9 +1,8 @@
 class AttendanceLogsController < ApplicationController
-  # before_action :set_attendance_log, only: [:show, :edit, :update, :destroy]
     skip_before_action :verify_authenticity_token
 
   def index
-    @attendance_logs = AttendanceLog.all
+    attendance_logs = AttendanceLog.all
     render json: attendance_logs
   end
 
