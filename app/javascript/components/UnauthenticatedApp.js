@@ -1,18 +1,18 @@
-import React from "react"
+import React from 'react'
 import PropTypes from "prop-types"
-import EventsUnAuth from './pages/EventsUnAuth'
-import CarouselSection from './CarouselSection'
+
 import { Button, Navbar, Nav, Jumbotron } from 'react-bootstrap'
-import Logo from './images/mobfit.png'
-import Footer from './Footer'
-import NavUnauth from './NavUnauth'
-import Background from './images/bkimage.jpg'
+import { Route, NavLink, HashRouter, Router} from "react-router-dom";
 
 import { allEvents} from './api'
 
-import { Route, NavLink, HashRouter, Router} from "react-router-dom";
-
+import Events from './pages/Events'
+import Logo from './images/mobfit.png'
+import Footer from './Footer'
+import NavUnauth from './NavUnauth'
 import AboutUs from "./pages/AboutUs";
+import CarouselSection from './CarouselSection'
+import Background from './images/bkimage.jpg'
 
 class UnauthenticatedApp extends React.Component {
   constructor(props){
@@ -41,11 +41,12 @@ class UnauthenticatedApp extends React.Component {
     let { events } = this.state
     return (
       <React.Fragment>
-        <NavUnauth/>
-        <CarouselSection/>
-        < EventsUnAuth events={events} />
-      
-
+        < NavUnauth /> 
+        < CarouselSection />
+        < Events events={events} />
+        <div className="aboutus">
+          < AboutUs />
+        </div>
         <Footer/>
       </React.Fragment>
     );

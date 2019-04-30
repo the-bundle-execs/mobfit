@@ -1,4 +1,5 @@
 json.array! @events do |event|
+  json.id event.id
   json.event_name event.event_name
   json.date event.date
   json.time event.time
@@ -13,5 +14,8 @@ json.array! @events do |event|
   json.duration event.duration
   json.comments event.comments
   json.attendance_count event.attendance_logs.length
-  json.is_attending event.attending?(current_user)
+
+  if current_user.present?
+    json.is_attending event.attending?(current_user)
+  end
 end

@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 import PropTypes from "prop-types"
 
 import { allEvents, createEvent, updateEvent, deleteEvent, getAttLogs } from './api'
@@ -10,6 +10,7 @@ import NewEvent from './pages/NewEvent'
 import HostedEvents from './HostedEvents'
 import Footer from './Footer'
 import NavAuth from './NavAuth'
+import Header from './Header'
 
 class AuthenticatedApp extends React.Component {
   constructor(props){
@@ -25,7 +26,6 @@ class AuthenticatedApp extends React.Component {
     this.showEvents()
     this.showAttLogs()
   }
-
 
   showEvents = () => {
     allEvents()
@@ -47,8 +47,8 @@ class AuthenticatedApp extends React.Component {
       })
   }
 
-  editEvent = (id) => {
-  	updateEvent(id)
+  editEvent = (id, update) => {
+  	updateEvent(id, update)
       .then(updatedEvent => {
         this.showEvents()
       })
@@ -58,17 +58,17 @@ class AuthenticatedApp extends React.Component {
   }
 
   removeEvent = (id) => {
-    deleteEvent(id)
-    .then(event => {
-      this.showEvents()
-    })
+    if (window.confirm('Are you sure you want to delete this event?')) {
+      deleteEvent(id)
+      .then(event => {
+        this.showEvents()
+      })
+    }
   }
-
 
   showAttLogs = () =>{
     getAttLogs()
     .then((attendance_logs)=>{
-      console.log(attendance_logs);
       this.setState({ attendance_logs })
     })
     .catch((error) => {
@@ -76,41 +76,44 @@ class AuthenticatedApp extends React.Component {
     })
   }
 
-
-
   render () {
-    let { events, show, attendance_logs } = this.state
-    let { current_user } = this.props
+    let { events, show } = this.state
+    let { google_maps_api_key, current_user } = this.props
     return (
       <React.Fragment>
-        <Router>
-          <NavAuth />
-          {current_user.is_trainer &&
-            <div>
-              <h1 >Welcome {current_user.username}!</h1>
-              
-              < HostedEvents
-                events={events}
-                user={current_user}
-                removeEvent={this.removeEvent}
-                editEvent={this.editEvent}
-              />
-              < NewEvent
-                addEvent={this.newEvent}
-                show={show}
-                onHide={() => this.setState({ show: false })} user={current_user} />
-              < Events events={events} user={current_user} />
-            </div>
-          }
+        < NavAuth />
+        < Header user={current_user} />
+        {current_user.is_trainer &&
+          <div>
+            < HostedEvents
+              events={events}
+              user={current_user}
+              removeEvent={this.removeEvent}
+              editEvent={this.editEvent}
+            />
+            < NewEvent
+              addEvent={this.newEvent}
+              show={show}
+              onHide={() => this.setState({ show: false })} user={current_user}
+            />
+            < Events
+              events={events}
+              user={current_user}
+              google_maps_api_key={google_maps_api_key}
+            />
+          </div>
+        }
 
-          {!current_user.is_trainer &&
-            <div>
-              <h1>Hello {current_user.username}!</h1>
-              < RegisteredEvents events={events} user={current_user} attendance_logs={attendance_logs} />
-              < Events events={events} user={current_user} />
-            </div>
-          }
-          </Router>
+        {!current_user.is_trainer &&
+          <div>
+            < RegisteredEvents events={events} user={current_user} attendance_logs={attendance_logs} />
+            < Events
+              events={events}
+              user={current_user}
+              google_maps_api_key={google_maps_api_key}
+            />
+          </div>
+        }
         <Footer />
       </React.Fragment>
     );
