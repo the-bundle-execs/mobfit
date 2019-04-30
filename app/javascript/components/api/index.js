@@ -24,7 +24,7 @@ let createEvent = (newevent) => {
 			if(response.status === 200){
 	      return response.json()
 	    } else {
-	      throw "Bad Response"
+	      throw "All starred input fields required."
 	    }
 		})
 		.catch(e=> alert(e))
@@ -56,7 +56,7 @@ let updateEvent = (id, update) => {
 		if(response.status === 200){
 			return response.json()
 		} else {
-			throw "Bad Response"
+			throw "All starred input fields required."
 		}
 	})
 	.catch(e=> alert(e))

@@ -43,8 +43,8 @@ class UnauthenticatedApp extends React.Component {
         < NavUnauth />
         < CarouselSection />
         < Events events={events} />
-        <div className = "aboutus">
-          <AboutUs/>
+        <div className="aboutus">
+          < AboutUs />
         </div>
         <Footer/>
       </React.Fragment>
