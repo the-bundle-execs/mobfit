@@ -87,7 +87,8 @@ class AuthenticatedApp extends React.Component {
           <NavAuth />
           {current_user.is_trainer &&
             <div>
-              <h1>Welcome {current_user.username}!</h1>
+              <h1 >Welcome {current_user.username}!</h1>
+              
               < HostedEvents
                 events={events}
                 user={current_user}

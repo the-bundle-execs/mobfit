@@ -15,7 +15,7 @@ class Events extends React.Component {
           <CardDeck>
           {events.map((evt, index) =>{
             return(
-              <Card key={index} className="text-white bg-primary mb-3">
+              <Card key={index} className="card border-warning mb-3">
                 <Card.Body>
                   <Card.Title>{evt.event_name}</Card.Title>
                   <Card.Text>
