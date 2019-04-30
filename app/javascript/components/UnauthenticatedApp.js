@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 import PropTypes from "prop-types"
 
 import { Button, Navbar, Nav, Jumbotron } from 'react-bootstrap'
@@ -12,6 +12,7 @@ import Footer from './Footer'
 import NavUnauth from './NavUnauth'
 import AboutUs from "./pages/AboutUs";
 import CarouselSection from './CarouselSection'
+import Background from './images/bkimage.jpg'
 
 class UnauthenticatedApp extends React.Component {
   constructor(props){
@@ -40,7 +41,7 @@ class UnauthenticatedApp extends React.Component {
     let { events } = this.state
     return (
       <React.Fragment>
-        < NavUnauth />
+        < NavUnauth /> 
         < CarouselSection />
         < Events events={events} />
         <div className="aboutus">

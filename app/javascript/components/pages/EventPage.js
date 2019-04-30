@@ -1,10 +1,9 @@
-import React from "react"
+import React from 'react'
 import PropTypes from "prop-types"
 import { Button, Navbar, Nav, Container, Row, Col } from 'react-bootstrap'
 
 import { allEvents, showEvent, createAttLog } from '../api'
 import Map from '../Map'
-
 
 class EventPage extends React.Component {
   constructor(props){
@@ -15,6 +14,7 @@ class EventPage extends React.Component {
        events:[],
        error: null,
        event_id: match.params.id,
+       att_log_save: false
      }
    }
 
@@ -37,6 +37,7 @@ class EventPage extends React.Component {
         showEvent(match.params.id)
         .then((event)=>{
           this.setState({ event })
+          this.setState({event_id: match.params.id})
         })
         .catch((error) => {
           this.setState({ error })
@@ -52,15 +53,19 @@ class EventPage extends React.Component {
         // console.log(event_id);
         // console.log(this.props.user.id);
         createAttLog(attributes)
+
+        // .then((att_log_save) =>{
+        //   this.setstate({att_log_save: true})
+        //           console.log(att_log_save);
+        // })
+
         .catch((error) => {
           this.setState({ error })
         })
+
+
       }
 
-      // <div class="alert alert-dismissible alert-success">
-      // <button type="button" class="close" data-dismiss="alert">&times;</button>
-      // <strong>Well done!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.
-      // </div>
 
 
   render () {

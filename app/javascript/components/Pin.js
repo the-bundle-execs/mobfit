@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 class Pin extends React.Component {
   render() {
-    const { lat, long } = this.props
+    const { lat, lng, title } = this.props
     return (
       <div>
-
+        <p>{title}</p>
       </div>
     )
   }

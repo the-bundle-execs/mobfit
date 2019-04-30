@@ -1,9 +1,9 @@
- import React, { Component } from "react";
- import ReactDOM from 'react-dom'
- import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import React from "react";
+import ReactDOM from 'react-dom'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 
- class AboutUs extends Component {
+ class AboutUs extends React.Component {
    render() {
      return(
       <Router>
@@ -20,4 +20,4 @@
    }
  }
 
- export default AboutUs
+export default AboutUs

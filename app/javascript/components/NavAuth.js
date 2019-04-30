@@ -1,13 +1,11 @@
-import React from "react"
+import React from 'react'
 import PropTypes from "prop-types"
 import { Navbar, Nav, Jumbotron } from 'react-bootstrap'
 import Logo from './images/mobfit.png'
 
 
 class NavAuth extends React.Component {
-
   render () {
-
     return (
       <React.Fragment>
         <Jumbotron href="#home" id="landingpage" fluid className="text-xs-center">

@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Form, Modal, Button, Container, Row, Col } from 'react-bootstrap'
 
-class EditEvent extends Component {
+class EditEvent extends React.Component {
   constructor(props){
     super(props)
     this.state = {
@@ -149,6 +149,7 @@ class EditEvent extends Component {
                       style={{width: '200px'}}
                       type="number"
                       name="max_enrollment"
+                      min={0}
                       onChange={this.handleChange}
                       value={formUpdate.max_enrollment || ''}
                     />

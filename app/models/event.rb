@@ -4,7 +4,6 @@ class Event < ApplicationRecord
   geocoded_by :location_name, latitude: :loc_latitude, longitude: :loc_longitude
 
   validates :event_name, :date, :time, :location_name, :activity, :level, :max_enrollment, :equipment, :duration, presence: true
-  # validates :max_enrollment, numericality: { only_integer: true }, greater_than: 0
 
   has_many :attendance_logs
   has_many :users, through: :attendance_logs
