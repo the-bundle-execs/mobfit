@@ -11,7 +11,7 @@ class Events extends React.Component {
       <React.Fragment>
       <Router>
         <div>
-          <h1>Other Events in the area:</h1>
+          <h1>Check out some other Events in the area:</h1>
           <CardDeck>
           {events.map((evt, index) =>{
             return(

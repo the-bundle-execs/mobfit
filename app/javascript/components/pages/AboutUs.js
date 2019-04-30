@@ -7,6 +7,7 @@ class AboutUs extends Component {
   render() {
     return(
       <Router>
+
         <div>
             <h3> About Us </h3>
                 <p>
@@ -15,6 +16,7 @@ class AboutUs extends Component {
                 We’re obsessively passionate about it, and our mission is to help people achieve it.
                 </p>
             </div>
+          
         </Router>
     )
   }
