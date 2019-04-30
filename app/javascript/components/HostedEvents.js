@@ -17,11 +17,11 @@ class HostedEvents extends React.Component {
         {hostedEvents.length === 0 &&
           <h4 key={user.id}>You are not scheduled to host any events.</h4>
         }
-        <CardDeck>
+        <CardDeck >
           {hostedEvents.map(event => {
             return(
               <div key={event.id}>
-                <Card className="text-white bg-primary mb-3">
+                <Card className="card border-danger mb-3">
                   <Card.Body>
                     <Card.Title>{event.event_name}</Card.Title>
                     <Card.Text>

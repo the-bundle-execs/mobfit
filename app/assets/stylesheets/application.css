@@ -15,19 +15,22 @@
  */
 
 #landingpage{
-    background-color:white;
+    background-color:#ebe7ee
+
 }
 
 .welcome{
-    margin-bottom:-1%;
+    margin-bottom:-100%;
+    margin-top: 10px;
     font-style:arial;
     font-weight:bold;
 }
 
 h1, .h1 {
 text-align:center;
-font-family: cursive;
-font-size: 50px
+font-family: georgia;
+font-size: 50px;
+
 }
 .logo{
     width: 80px;
@@ -39,13 +42,16 @@ font-size: 50px
 }
 
  .beach-day {
-    width: 650px;
+    width: 800px;
     height: 400px;
  }
 
  .carousel {
- left: 100px;
- right: 0px;
+ left: auto;
+ right: -15%;
+ border-radius: 100%;
+ padding: -50%;
+
  }
 
  .aboutus{
@@ -67,5 +73,6 @@ font-size: 50px
   border: 1px;
   background-color: #593196;
   height: 50px;
+  }
 
-}
+  
