@@ -87,6 +87,18 @@ let createAttLog = (newloginfo) => {
 		.catch(e=> alert(e))
 }
 
+let getAttLogs = () => {
+	return fetch(BASE + '/attendance_logs')
+  .then((response) => { //promise
+		if(response.status === 200){
+      return response.json()
+    } else {
+      throw "Bad Response"
+    }
+  })
+	.catch(e=> alert(e))
+}
+
 export  {
-	allEvents, createEvent, showEvent, createAttLog, updateEvent, deleteEvent
+	allEvents, createEvent, showEvent, createAttLog, getAttLogs, updateEvent, deleteEvent
 }

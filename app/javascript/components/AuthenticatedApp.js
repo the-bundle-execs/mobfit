@@ -1,10 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import { allEvents, createEvent, updateEvent, deleteEvent } from './api'
+import { allEvents, createEvent, updateEvent, deleteEvent, getAttLogs } from './api'
 
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
-
+import RegisteredEvents from './RegisteredEvents'
 import Events from './pages/Events'
 import NewEvent from './pages/NewEvent'
 import HostedEvents from './HostedEvents'
@@ -17,12 +17,15 @@ class AuthenticatedApp extends React.Component {
      this.state = {
        error: null,
        events: [],
+       attendance_logs: []
      }
    }
 
-  componentWillMount = () => {
+  componentDidMount = () => {
     this.showEvents()
-	}
+    this.showAttLogs()
+  }
+
 
   showEvents = () => {
     allEvents()
@@ -44,8 +47,8 @@ class AuthenticatedApp extends React.Component {
       })
   }
 
-  editEvent = (id, update) => {
-    updateEvent(id, update)
+  editEvent = (id) => {
+  	updateEvent(id)
       .then(updatedEvent => {
         this.showEvents()
       })
@@ -61,8 +64,22 @@ class AuthenticatedApp extends React.Component {
     })
   }
 
+
+  showAttLogs = () =>{
+    getAttLogs()
+    .then((attendance_logs)=>{
+      console.log(attendance_logs);
+      this.setState({ attendance_logs })
+    })
+    .catch((error) => {
+      this.setState({ error })
+    })
+  }
+
+
+
   render () {
-    let { events, show } = this.state
+    let { events, show, attendance_logs } = this.state
     let { current_user } = this.props
     return (
       <React.Fragment>
@@ -89,6 +106,7 @@ class AuthenticatedApp extends React.Component {
           {!current_user.is_trainer &&
             <div>
               <h1>Hello {current_user.username}!</h1>
+              < RegisteredEvents events={events} user={current_user} attendance_logs={attendance_logs} />
               < Events events={events} user={current_user} />
             </div>
           }

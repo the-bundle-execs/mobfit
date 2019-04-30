@@ -12,6 +12,7 @@ class EventPage extends React.Component {
        events:[],
        error: null,
        event_id: match.params.id,
+       att_log_save: false
      }
    }
 
@@ -33,11 +34,14 @@ class EventPage extends React.Component {
 	    if(match.params.id != prevMatch.params.id){
         showEvent(match.params.id)
         .then((event)=>{
+          console.log(event);
           this.setState({ event })
+          this.setState({event_id: match.params.id})
         })
         .catch((error) => {
           this.setState({ error })
         })
+
       }
     }
 
@@ -49,15 +53,19 @@ class EventPage extends React.Component {
         // console.log(event_id);
         // console.log(this.props.user.id);
         createAttLog(attributes)
+
+        // .then((att_log_save) =>{
+        //   this.setstate({att_log_save: true})
+        //           console.log(att_log_save);
+        // })
+
         .catch((error) => {
           this.setState({ error })
         })
+
+
       }
 
-      // <div class="alert alert-dismissible alert-success">
-      // <button type="button" class="close" data-dismiss="alert">&times;</button>
-      // <strong>Well done!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.
-      // </div>
 
 
   render () {
