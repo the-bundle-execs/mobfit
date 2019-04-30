@@ -30,7 +30,8 @@ class NewEvent extends Component {
   submitEvent = () => {
     const { form, show } = this.state
     this.props.addEvent(form)
-    this.setState({ show: false,
+    this.setState({
+      show: false,
       form:{
         event_name: '',
         date: '',
