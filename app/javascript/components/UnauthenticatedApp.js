@@ -53,4 +53,3 @@ class UnauthenticatedApp extends React.Component {
 }
 
 export default UnauthenticatedApp
-5

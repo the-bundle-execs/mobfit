@@ -9,4 +9,8 @@ class Event < ApplicationRecord
   has_many :attendance_logs
   has_many :users, through: :attendance_logs
   belongs_to :trainer, class_name: 'User', foreign_key: 'trainer_id'
+
+  def attending? user
+    self.attendance_logs.where(user_id: user.id).count > 0
+  end
 end
