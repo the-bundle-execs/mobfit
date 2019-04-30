@@ -6,6 +6,7 @@ import { Button, Navbar, Nav, Jumbotron } from 'react-bootstrap'
 import Logo from './images/mobfit.png'
 import Footer from './Footer'
 import NavUnauth from './NavUnauth'
+import Background from './images/bkimage.jpg'
 
 import { allEvents} from './api'
 
@@ -43,9 +44,8 @@ class UnauthenticatedApp extends React.Component {
         <NavUnauth/>
         <CarouselSection/>
         < EventsUnAuth events={events} />
-        <div className = "aboutus">
-          <AboutUs/>
-        </div>
+      
+
         <Footer/>
       </React.Fragment>
     );
@@ -53,4 +53,3 @@ class UnauthenticatedApp extends React.Component {
 }
 
 export default UnauthenticatedApp
-5

@@ -1,7 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Navbar, Nav, Jumbotron } from 'react-bootstrap'
+import { Navbar, Nav, Jumbotron, Container } from 'react-bootstrap'
 import Logo from './images/mobfit.png'
+import { Route, NavLink, HashRouter, BrowserRouter as Router} from "react-router-dom";
+import ScrollableAnchor, { configureAnchors } from "react-scrollable-anchor";
+import { HashLink as Link } from "react-router-hash-link";
+import AboutUs from "./pages/AboutUs"
 
 
 class NavUnauth extends React.Component {
@@ -9,6 +13,7 @@ class NavUnauth extends React.Component {
   render () {
     return (
       <React.Fragment>
+        <Router>
         <Jumbotron href="#home" id="landingpage" fluid className="text-xs-center">
             <Navbar variant="navbar navbar-expand-lg navbar-dark bg-primary" className="nav-bar">
             <Navbar.Brand img src={Logo} href="#home">
@@ -18,6 +23,7 @@ class NavUnauth extends React.Component {
                 <Navbar.Brand href="#home">MobFit</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
+
                 <Nav variant="mr-auto">
                 <Nav.Link href="#home">Home</Nav.Link>
                <Nav.Link href="#about">About Us</Nav.Link>
@@ -27,10 +33,19 @@ class NavUnauth extends React.Component {
                 </Nav>
                 </Navbar.Collapse>
                 </Navbar>
+          </Jumbotron>
 
-               <h1 className = "welcome"> Welcome to MobFit!</h1>
+               <Route exact path="/about" component={AboutUs} />
+
+            <ScrollableAnchor id={"about"}>
+              <Jumbotron id="about" href="#about" fluid className="text-xs-center">
+                <Container>
+                   <AboutUs/>
+                </Container>
             </Jumbotron>
+          </ScrollableAnchor>
 
+       </Router>
       </React.Fragment>
     );
   }
