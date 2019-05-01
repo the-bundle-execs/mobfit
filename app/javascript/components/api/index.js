@@ -99,6 +99,24 @@ let getAttLogs = () => {
 	.catch(e=> alert(e))
 }
 
+let deleteAttLog = id => {
+	console.log(id);
+	return fetch(BASE + `/events/${id}/unsubscribe`, {
+		method: "DELETE"
+	})
+	.then((response) => { //promise
+		if(response.status === 200){
+      return response.json()
+    } else {
+      throw "Bad Response"
+    }
+  })
+	.then(response =>{
+		console.log(response);
+	})
+	.catch(e=> alert(e))
+}
+
 export  {
-	allEvents, createEvent, showEvent, createAttLog, getAttLogs, updateEvent, deleteEvent
+	allEvents, createEvent, showEvent, createAttLog, getAttLogs, updateEvent, deleteEvent, deleteAttLog
 }

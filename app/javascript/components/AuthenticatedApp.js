@@ -76,8 +76,9 @@ class AuthenticatedApp extends React.Component {
     })
   }
 
+
   render () {
-    let { events, show } = this.state
+    let { events, show, attendance_logs} = this.state
     let { google_maps_api_key, current_user } = this.props
     return (
       <React.Fragment>
