@@ -35,6 +35,8 @@ class HostedEvents extends React.Component {
                           When:{event.date}
                           <br></br>
                           Time: {event.time}
+                          <br></br>
+                          Attendance: {event.attendance_count}
                         </Card.Text>
                       </Card.Body>
                       <Card.Footer>

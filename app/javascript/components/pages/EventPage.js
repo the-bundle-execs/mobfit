@@ -47,27 +47,33 @@ class EventPage extends React.Component {
       att_log = (newattlog) => {
         const {user} = this.props
         const {event_id} = this.state
-        const {user_id} = user.id
-        let attributes = {event_id: event_id, user_id: user_id}
-
+        let user_id
+        let attributes = {event_id: event_id, user_id: user.id}
         createAttLog(attributes)
+          .then((event)=>{
+          this.props.showEvents()
+          })
 
         .catch((error) => {
           this.setState({ error })
         })
+        alert("You have successfully registered for this event!")
       }
 
 
       removeAttLog = () => {
       const {event} = this.state
         deleteAttLog(event.id)
-
+          .then((event)=>{
+          this.props.showEvents()
+          })
+        alert("You are no longer registered for this event!")
       }
 
 
 
   render () {
-    const { user, google_maps_api_key } = this.props
+    const { user, google_maps_api_key, showEvents } = this.props
     const { event } = this.state
     return (
       <React.Fragment>
@@ -86,11 +92,10 @@ class EventPage extends React.Component {
                 <h5>Please Bring: {event.equipment}</h5>
                 <h5>Additional info: {event.comments}</h5>
               </ul>
-              <button type="button" onClick={this.att_log} className="btn btn-outline-success">Sign up for this Event</button>
-              {user.is_attending &&
+              {event.is_attending &&
                 <button type="button" onClick={this.removeAttLog} className="btn btn-outline-danger">Cancel registration for this Event</button>
               }
-              {!user.is_attending &&
+              {!event.is_attending &&
                 <button type="button" onClick={this.att_log} className="btn btn-outline-success">Sign up for this Event</button>
               }
               <button type="button" onClick={this.removeAttLog} className="btn btn-outline-danger">Cancel registration for this Event</button>
