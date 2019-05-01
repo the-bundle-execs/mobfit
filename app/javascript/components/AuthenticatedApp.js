@@ -107,11 +107,13 @@ class AuthenticatedApp extends React.Component {
 
         {!current_user.is_trainer &&
           <div>
-            < RegisteredEvents events={events} user={current_user} attendance_logs={attendance_logs} />
+            < RegisteredEvents showEvents={this.showEvents} events={events}
+            user={current_user} attendance_logs={attendance_logs} google_maps_api_key={google_maps_api_key}/>
             < Events
               events={events}
               user={current_user}
               google_maps_api_key={google_maps_api_key}
+              showEvents={this.showEvents}
             />
           </div>
         }

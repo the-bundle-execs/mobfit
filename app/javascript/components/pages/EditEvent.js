@@ -62,7 +62,7 @@ class EditEvent extends React.Component {
                    <Col xs={6} md={4}>
                      <Form.Label>Trainer Name:</Form.Label>
                      <Form.Control
-                      style={{width: '200px'}}
+                      style={{width: '100%'}}
                       type="text"
                       name="trainer_name"
                       onChange={this.handleChange}
@@ -72,7 +72,7 @@ class EditEvent extends React.Component {
                    <Col xs={6} md={4}>
                      <Form.Label id="event_name">*Event Name:</Form.Label>
                      <Form.Control
-                      style={{width: '200px'}}
+                      style={{width: '100%'}}
                       type="text"
                       name="event_name"
                       onChange={this.handleChange}
@@ -82,7 +82,7 @@ class EditEvent extends React.Component {
                    <Col xs={6} md={4}>
                    <Form.Label id="date">*Event Date:</Form.Label>
                    <Form.Control
-                    style={{width: '200px'}}
+                    style={{width: '100%'}}
                     type="date"
                     name="date"
                     onChange={this.handleChange}
@@ -94,7 +94,7 @@ class EditEvent extends React.Component {
                    <Col xs={6} md={4}>
                     <Form.Label id="time">*Event Time:</Form.Label>
                     <Form.Control
-                      style={{width: '200px'}}
+                      style={{width: '100%'}}
                       type="time"
                       name="time"
                       onChange={this.handleChange}
@@ -104,7 +104,7 @@ class EditEvent extends React.Component {
                    <Col xs={6} md={4}>
                    <Form.Label id="duration">*Event Duration:</Form.Label>
                      <Form.Control
-                      style={{width: '200px'}}
+                      style={{width: '100%'}}
                       type="text"
                       name="duration"
                       onChange={this.handleChange}
@@ -114,7 +114,7 @@ class EditEvent extends React.Component {
                   <Col xs={6} md={4}>
                   <Form.Label id="location_name">*Full Event Address:</Form.Label>
                     <Form.Control
-                      style={{width: '200px'}}
+                      style={{width: '100%'}}
                       type="text"
                       name="location_name"
                       onChange={this.handleChange}
@@ -126,7 +126,7 @@ class EditEvent extends React.Component {
                   <Col xs={6} md={4}>
                     <Form.Label id="activity">*Event Activity:</Form.Label>
                     <Form.Control
-                      style={{width: '200px'}}
+                      style={{width: '100%'}}
                       type="text"
                       name="activity"
                       onChange={this.handleChange}
@@ -136,7 +136,7 @@ class EditEvent extends React.Component {
                   <Col xs={6} md={4}>
                     <Form.Label id="level">*Recommended Fitness Level:</Form.Label>
                     <Form.Control
-                      style={{width: '200px'}}
+                      style={{width: '100%'}}
                       type="text"
                       name="level"
                       onChange={this.handleChange}
@@ -146,7 +146,7 @@ class EditEvent extends React.Component {
                   <Col xs={6} md={4}>
                     <Form.Label id="max_enrollment">*Maximum Number of Attendees:</Form.Label>
                     <Form.Control
-                      style={{width: '200px'}}
+                      style={{width: '100%'}}
                       type="number"
                       name="max_enrollment"
                       min={0}
@@ -159,7 +159,7 @@ class EditEvent extends React.Component {
                   <Col xs={6} md={4}>
                     <Form.Label id="equipment">*Event Equipment:</Form.Label>
                     <Form.Control
-                        style={{width: '200px'}}
+                        style={{width: '100%'}}
                         type="text"
                         name="equipment"
                         onChange={this.handleChange}
@@ -169,7 +169,7 @@ class EditEvent extends React.Component {
                   <Col xs={12} md={8}>
                     <Form.Label id="comments">Additional Comments:</Form.Label>
                     <Form.Control
-                        style={{width: '460px'}}
+                        style={{width: '100%'}}
                         type="text"
                         name="comments"
                         onChange={this.handleChange}
