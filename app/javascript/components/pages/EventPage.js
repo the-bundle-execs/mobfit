@@ -95,6 +95,7 @@ class EventPage extends React.Component {
                 google_maps_api_key={google_maps_api_key}
                 lat={event.loc_latitude}
                 long={event.loc_longitude}
+                location={event.location_name}
               />
             </Col>
           </Row><br />
