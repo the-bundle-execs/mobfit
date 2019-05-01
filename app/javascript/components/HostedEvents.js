@@ -15,7 +15,7 @@ class HostedEvents extends React.Component {
     return (
       <React.Fragment>
         {hostedEvents.length === 0 &&
-          <h4 key={user.id}>You are not scheduled to host any events.</h4>
+          <h4 key={user.id} style={{textAlign: 'center'}}>You are not scheduled to host any events.</h4>
         }
         {hostedEvents.length !== 0 &&
           <div>
