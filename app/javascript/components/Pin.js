@@ -1,11 +1,17 @@
 import React from 'react'
+import { FaMapPin } from 'react-icons/fa'
+
+const PinStyle = {
+  fontSize: '24px',
+  color: '#631AAC'
+}
 
 class Pin extends React.Component {
   render() {
-    const { lat, lng, title } = this.props
+    const { location } = this.props
     return (
       <div>
-        <p>{title}</p>
+        < FaMapPin style={PinStyle} />
       </div>
     )
   }

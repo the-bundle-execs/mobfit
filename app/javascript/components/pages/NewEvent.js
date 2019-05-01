@@ -127,7 +127,7 @@ class NewEvent extends React.Component {
                        />
                     </Col>
                     <Col xs={6} md={4}>
-                    <Form.Label id="location_name">*Event Address:</Form.Label>
+                    <Form.Label id="location_name">*Full Event Address:</Form.Label>
                       <Form.Control
                         style={{width: '200px'}}
                         type="text"
