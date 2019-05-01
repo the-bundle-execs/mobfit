@@ -78,6 +78,7 @@ class AuthenticatedApp extends React.Component {
 
 
 
+
   render () {
     let { events, show, attendance_logs } = this.state
     let { current_user } = this.props
@@ -88,7 +89,7 @@ class AuthenticatedApp extends React.Component {
           {current_user.is_trainer &&
             <div>
               <h1 >Welcome {current_user.username}!</h1>
-              
+
               < HostedEvents
                 events={events}
                 user={current_user}

@@ -68,13 +68,5 @@ RSpec.describe Event, type: :model do
     expect(event.errors[:max_enrollment]).to_not be_empty
   end
 
-  # it "should validate max enrollment as an integer" do
-  #   event = Event.create(max_enrollment: "15")
-  #   expect(event.errors[:max_enrollment]).to_not be_empty
-  # end
-  #
-  # it "should validate max enrollment as a postive number" do
-  #   event = Event.create(max_enrollment: -1)
-  #   expect(event.errors[:max_enrollment]).to_not be_empty
-  # end
+
 end

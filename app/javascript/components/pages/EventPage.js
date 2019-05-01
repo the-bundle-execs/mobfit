@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Button, Navbar, Nav } from 'react-bootstrap'
-import { allEvents, showEvent, createAttLog } from '../api'
+import { allEvents, showEvent, createAttLog, deleteAttLog } from '../api'
 
 class EventPage extends React.Component {
   constructor(props){
@@ -62,7 +62,12 @@ class EventPage extends React.Component {
         .catch((error) => {
           this.setState({ error })
         })
+      }
 
+
+      removeAttLog = () => {
+      const {event} = this.state
+        deleteAttLog(event.id)
 
       }
 
@@ -70,6 +75,7 @@ class EventPage extends React.Component {
 
   render () {
     const {user} = this.props
+
     return (
       <React.Fragment>
         <div className= "eventinfo">
@@ -86,8 +92,14 @@ class EventPage extends React.Component {
             <h5>Additional info: {this.state.event.comments}</h5>
           </ul>
         </div>
-        <h2>{user.username}</h2>
-        <button type="button" onClick={this.att_log} className="btn btn-outline-success">Sign up for this Event</button>
+        {user.is_attending &&
+          <button type="button" onClick={this.removeAttLog} className="btn btn-outline-danger">Cancel registration for this Event</button>
+        }
+        {!user.is_attending &&
+          <button type="button" onClick={this.att_log} className="btn btn-outline-success">Sign up for this Event</button>
+        }
+        <button type="button" onClick={this.removeAttLog} className="btn btn-outline-danger">Cancel registration for this Event</button>
+
       </React.Fragment>
     );
   }

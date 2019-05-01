@@ -43,6 +43,12 @@ class EventsController < ApplicationController
     @event.destroy
   end
 
+  def unsubscribe
+    @event = Event.find(params[:id])
+    @event.attendance_logs.where(user: current_user).destroy_all if @event
+    render :show
+  end
+
   private
     def event_params
       params.fetch(:event, {}).permit(:event_name, :date, :time, :location_name, :activity, :level, :max_enrollment, :equipment, :duration)

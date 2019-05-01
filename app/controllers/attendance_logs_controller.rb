@@ -39,12 +39,8 @@ class AttendanceLogsController < ApplicationController
   # DELETE /attendance_logs/1
 
   def destroy
-    @attendance_log = AttendanceLog.find(params[:id])
-    @attendance_log.destroy
-    # respond_to do |format|
-    #   format.html { redirect_to attendance_logs_url, notice: 'Attendance log was successfully destroyed.' }
-    #   format.json { head :no_content }
-    # end
+    attendance_log = AttendanceLog.find(params[:id])
+    attendance_log.destroy
   end
 
   private
