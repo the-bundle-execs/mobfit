@@ -19,30 +19,24 @@ class NavUnauth extends React.Component {
               <img src={Logo}className="logo" alt="Logo" />
             </Navbar.Brand>
 
-                <Navbar.Brand href="#home">MobFit</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-
+            <Navbar.Brand href="#home">MobFit</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse id="basic-navbar-nav">
                 <Nav variant="mr-auto">
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#aboutus">About Us</Nav.Link>
-                <Nav.Link href="/users/sign_in">Login</Nav.Link><br/>
-               <Nav.Link href="/users/sign_up">Sign up</Nav.Link>
-
+                    <Nav.Link href="#home">Home</Nav.Link>
+                    <Nav.Link href="#about">About Us</Nav.Link>
+                    <Nav.Link href="/users/sign_in">Login</Nav.Link><br/>
+                    <Nav.Link href="/users/sign_up">Sign up</Nav.Link>
                 </Nav>
-                </Navbar.Collapse>
-                </Navbar>
+              </Navbar.Collapse>
+              </Navbar>
+                <h1 className = "welcome"> Welcome to MobFit</h1>
+
           </Jumbotron>
 
                <Route exact path="/about" component={AboutUs} />
 
-            <ScrollableAnchor id={"about"}>
-              <Jumbotron id="about" href="#about" fluid className="text-xs-center">
-                <Container>
-                   <AboutUs/>
-                </Container>
-            </Jumbotron>
-          </ScrollableAnchor>
+
 
        </Router>
       </React.Fragment>
