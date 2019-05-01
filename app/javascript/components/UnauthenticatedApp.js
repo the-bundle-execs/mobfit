@@ -15,7 +15,8 @@ import Footer from './Footer'
 import NavUnauth from './NavUnauth'
 import AboutUs from "./pages/AboutUs";
 import Testimonial from "./pages/Testimonial";
-import CarouselSection from './CarouselSection'
+import CarouselSection from './CarouselSection';
+import GettingStarted from './pages/GettingStarted';
 
 class UnauthenticatedApp extends React.Component {
   constructor(props){
@@ -46,15 +47,29 @@ class UnauthenticatedApp extends React.Component {
       <React.Fragment>
         <NavUnauth/>
         <CarouselSection/>
-        < Events events={events} />
+        < Events events={events} /><br/>
+
+        <ScrollableAnchor id={"gettingstart"}>
+        <Jumbotron id="gettingstart" href="#gettingstart" fluid className="text-xs-center" className="gettingstart">
+
+             <Container>
+                <GettingStarted/>
+             </Container>
+             </Jumbotron>
+       </ScrollableAnchor><br/>
+       <Testimonial/><br/>
+
+
          <ScrollableAnchor id={"about"}>
             <Jumbotron id="about" href="#about" fluid className="text-xs-center" className="aboutborder">
               <Container>
                  <AboutUs/>
               </Container>
           </Jumbotron>
-        </ScrollableAnchor><br/><br/>
-          <Testimonial/>
+        </ScrollableAnchor><br/>
+
+
+
         <Footer/>
       </React.Fragment>
     );
