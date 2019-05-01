@@ -47,8 +47,8 @@ class EventPage extends React.Component {
       att_log = (newattlog) => {
         const {user} = this.props
         const {event_id} = this.state
-        const {user_id} = user.id
-        let attributes = {event_id: event_id, user_id: user_id}
+        let user_id
+        let attributes = {event_id: event_id, user_id: user.id}
 
         createAttLog(attributes)
 
