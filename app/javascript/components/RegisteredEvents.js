@@ -1,10 +1,15 @@
 import React from 'react'
 import PropTypes from "prop-types"
 import { CardDeck, Card, Button } from "react-bootstrap"
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import EventPage from './pages/EventPage'
+import {deleteAttLog} from './api'
 
 class RegisteredEvents extends React.Component {
+
+
   render () {
-    const { events, user, attendance_logs } = this.props
+    const { events, user, attendance_logs, google_maps_api_key } = this.props
     const registeredEvents = events.filter(event => event.is_attending);
     return (
       <React.Fragment>
@@ -18,7 +23,7 @@ class RegisteredEvents extends React.Component {
             {registeredEvents.map(event => {
               return(
                 <div key={event.id}>
-                  <Card className="text-white bg-primary mb-3">
+                  <Card className="card border-primary mb-3">
                     <Card.Body>
                       <Card.Title>{event.event_name}</Card.Title>
                       <Card.Text>

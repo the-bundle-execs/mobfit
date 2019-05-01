@@ -6,6 +6,7 @@ import { Route, NavLink, HashRouter, BrowserRouter as Router} from "react-router
 import ScrollableAnchor, { configureAnchors } from "react-scrollable-anchor";
 import { HashLink as Link } from "react-router-hash-link";
 import AboutUs from "./pages/AboutUs"
+import GettingStarted from "./pages/GettingStarted"
 
 
 class NavUnauth extends React.Component {
@@ -23,7 +24,7 @@ class NavUnauth extends React.Component {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav variant="mr-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
+                    <Nav.Link href="#gettingstart">Lets Start!</Nav.Link>
                     <Nav.Link href="#about">About Us</Nav.Link>
                     <Nav.Link href="/users/sign_in">Login</Nav.Link><br/>
                     <Nav.Link href="/users/sign_up">Sign up</Nav.Link>
@@ -33,11 +34,8 @@ class NavUnauth extends React.Component {
                 <h1 className = "welcome"> Welcome to MobFit</h1>
 
           </Jumbotron>
-
-               <Route exact path="/about" component={AboutUs} />
-
-
-
+              <Route exact path="/gettingstart" component={GettingStarted} />
+              <Route exact path="/about" component={AboutUs} />
        </Router>
       </React.Fragment>
     );

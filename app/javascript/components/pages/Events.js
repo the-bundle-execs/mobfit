@@ -8,12 +8,12 @@ import EventPage from './EventPage'
 
 class Events extends React.Component {
   render () {
-    const { events, user, google_maps_api_key } = this.props
+    const { events, user, google_maps_api_key, showEvents } = this.props
     return (
       <React.Fragment>
       <Router>
         <div>
-          <h1>Check out some other Events in the area:</h1>
+          <h1>Check Out Some Other Events</h1>
           <CardDeck>
           {events.map((evt, index) =>{
             return(
@@ -44,7 +44,7 @@ class Events extends React.Component {
           )})}
           </CardDeck>
           < Route path='/event/:id'
-                render={(props) => <EventPage {...props} user={user} google_maps_api_key={google_maps_api_key}
+                render={(props) => <EventPage {...props} user={user} google_maps_api_key={google_maps_api_key} showEvents={showEvents}
                 />}
           />
         </div>
