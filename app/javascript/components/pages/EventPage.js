@@ -1,7 +1,14 @@
-import React from "react"
+import React from 'react'
 import PropTypes from "prop-types"
+<<<<<<< HEAD
 import { Button, Navbar, Nav } from 'react-bootstrap'
 import { allEvents, showEvent, createAttLog, deleteAttLog } from '../api'
+=======
+import { Button, Navbar, Nav, Container, Row, Col } from 'react-bootstrap'
+
+import { allEvents, showEvent, createAttLog } from '../api'
+import Map from '../Map'
+>>>>>>> master
 
 class EventPage extends React.Component {
   constructor(props){
@@ -34,14 +41,12 @@ class EventPage extends React.Component {
 	    if(match.params.id != prevMatch.params.id){
         showEvent(match.params.id)
         .then((event)=>{
-          console.log(event);
           this.setState({ event })
           this.setState({event_id: match.params.id})
         })
         .catch((error) => {
           this.setState({ error })
         })
-
       }
     }
 
@@ -74,6 +79,7 @@ class EventPage extends React.Component {
 
 
   render () {
+<<<<<<< HEAD
     const {user} = this.props
 
     return (
@@ -100,6 +106,39 @@ class EventPage extends React.Component {
         }
         <button type="button" onClick={this.removeAttLog} className="btn btn-outline-danger">Cancel registration for this Event</button>
 
+=======
+    const { user, google_maps_api_key } = this.props
+    const { event } = this.state
+    return (
+      <React.Fragment>
+        <Container>
+          <Row className="show-grid">
+            <Col xs={9} md={6}>
+              <h2>{event.event_name}</h2>
+              <ul>
+                <h5>Date: {event.date}</h5>
+                <h5>Time: {event.time}</h5>
+                <h5>Duration: {event.duration}</h5>
+                <h5>Location: {event.location_name}</h5>
+                <h5>Activity: {event.activity}</h5>
+                <h5>Intensity: {event.level}</h5>
+                <h5>Enrollment Limit: {event.max_enrollment}</h5>
+                <h5>Please Bring: {event.equipment}</h5>
+                <h5>Additional info: {event.comments}</h5>
+              </ul>
+              <button type="button" onClick={this.att_log} className="btn btn-outline-success">Sign up for this Event</button>
+            </Col>
+            <Col xs={9} md={6}>
+              < Map
+                google_maps_api_key={google_maps_api_key}
+                lat={event.loc_latitude}
+                long={event.loc_longitude}
+                location={event.location_name}
+              />
+            </Col>
+          </Row><br />
+        </Container>
+>>>>>>> master
       </React.Fragment>
     );
   }

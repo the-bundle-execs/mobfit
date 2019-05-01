@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-
   let(:user){User.create(email:'jim@gym.com', username: "jim", password: '123456')}
   let(:event){Event.create(event_name: 'Yoga', date: '3/22/2020', time: '2pm', location_name: 'balboa park', activity: 'yoga', level: 'beginner', max_enrollment: 20, equipment: 'yoga mat', duration: '1hour', trainer: user)}
 
@@ -67,6 +66,9 @@ RSpec.describe Event, type: :model do
     event = Event.create
     expect(event.errors[:max_enrollment]).to_not be_empty
   end
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> master
 end

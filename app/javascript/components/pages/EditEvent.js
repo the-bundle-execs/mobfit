@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Form, Modal, Button, Container, Row, Col } from 'react-bootstrap'
 
-class EditEvent extends Component {
+class EditEvent extends React.Component {
   constructor(props){
     super(props)
     this.state = {
@@ -70,7 +70,7 @@ class EditEvent extends Component {
                      />
                    </Col>
                    <Col xs={6} md={4}>
-                     <Form.Label id="event_name">Event Name:</Form.Label>
+                     <Form.Label id="event_name">*Event Name:</Form.Label>
                      <Form.Control
                       style={{width: '200px'}}
                       type="text"
@@ -80,7 +80,7 @@ class EditEvent extends Component {
                      />
                    </Col>
                    <Col xs={6} md={4}>
-                   <Form.Label id="date">Event Date:</Form.Label>
+                   <Form.Label id="date">*Event Date:</Form.Label>
                    <Form.Control
                     style={{width: '200px'}}
                     type="date"
@@ -92,7 +92,7 @@ class EditEvent extends Component {
                  </Row><br/>
                  <Row className="show-grid">
                    <Col xs={6} md={4}>
-                    <Form.Label id="time">Event Time:</Form.Label>
+                    <Form.Label id="time">*Event Time:</Form.Label>
                     <Form.Control
                       style={{width: '200px'}}
                       type="time"
@@ -102,7 +102,7 @@ class EditEvent extends Component {
                     />
                    </Col>
                    <Col xs={6} md={4}>
-                   <Form.Label id="duration">Event Duration:</Form.Label>
+                   <Form.Label id="duration">*Event Duration:</Form.Label>
                      <Form.Control
                       style={{width: '200px'}}
                       type="text"
@@ -112,7 +112,7 @@ class EditEvent extends Component {
                      />
                   </Col>
                   <Col xs={6} md={4}>
-                  <Form.Label id="location_name">Event Location:</Form.Label>
+                  <Form.Label id="location_name">*Full Event Address:</Form.Label>
                     <Form.Control
                       style={{width: '200px'}}
                       type="text"
@@ -124,7 +124,7 @@ class EditEvent extends Component {
                 </Row><br/>
                 <Row className="show-grid">
                   <Col xs={6} md={4}>
-                    <Form.Label id="activity">Event Activity:</Form.Label>
+                    <Form.Label id="activity">*Event Activity:</Form.Label>
                     <Form.Control
                       style={{width: '200px'}}
                       type="text"
@@ -134,7 +134,7 @@ class EditEvent extends Component {
                     />
                   </Col>
                   <Col xs={6} md={4}>
-                    <Form.Label id="level">Recommended Fitness Level:</Form.Label>
+                    <Form.Label id="level">*Recommended Fitness Level:</Form.Label>
                     <Form.Control
                       style={{width: '200px'}}
                       type="text"
@@ -144,11 +144,12 @@ class EditEvent extends Component {
                     />
                   </Col>
                   <Col xs={6} md={4}>
-                    <Form.Label id="max_enrollment">Maximum Number of Attendees:</Form.Label>
+                    <Form.Label id="max_enrollment">*Maximum Number of Attendees:</Form.Label>
                     <Form.Control
                       style={{width: '200px'}}
                       type="number"
                       name="max_enrollment"
+                      min={0}
                       onChange={this.handleChange}
                       value={formUpdate.max_enrollment || ''}
                     />
@@ -156,7 +157,7 @@ class EditEvent extends Component {
                 </Row><br/>
                 <Row className="show-grid">
                   <Col xs={6} md={4}>
-                    <Form.Label id="equipment">Event Equipment:</Form.Label>
+                    <Form.Label id="equipment">*Event Equipment:</Form.Label>
                     <Form.Control
                         style={{width: '200px'}}
                         type="text"

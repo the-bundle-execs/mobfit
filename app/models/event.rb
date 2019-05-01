@@ -4,7 +4,10 @@ class Event < ApplicationRecord
   # geocoded_by :location_name, latitude: :loc_latitude, longitude: :loc_longitude
 
   validates :event_name, :date, :time, :location_name, :activity, :level, :max_enrollment, :equipment, :duration, presence: true
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 
   has_many :attendance_logs
   has_many :users, through: :attendance_logs
@@ -13,5 +16,4 @@ class Event < ApplicationRecord
   def attending? user
     self.attendance_logs.where(user_id: user.id).count > 0
   end
-
 end
