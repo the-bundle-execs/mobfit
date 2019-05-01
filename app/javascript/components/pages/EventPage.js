@@ -1,14 +1,9 @@
 import React from 'react'
 import PropTypes from "prop-types"
-<<<<<<< HEAD
-import { Button, Navbar, Nav } from 'react-bootstrap'
-import { allEvents, showEvent, createAttLog, deleteAttLog } from '../api'
-=======
 import { Button, Navbar, Nav, Container, Row, Col } from 'react-bootstrap'
-
-import { allEvents, showEvent, createAttLog } from '../api'
+import { allEvents, showEvent, createAttLog, deleteAttLog } from '../api'
 import Map from '../Map'
->>>>>>> master
+
 
 class EventPage extends React.Component {
   constructor(props){
@@ -19,7 +14,6 @@ class EventPage extends React.Component {
        events:[],
        error: null,
        event_id: match.params.id,
-       att_log_save: false
      }
    }
 
@@ -55,14 +49,8 @@ class EventPage extends React.Component {
         const {event_id} = this.state
         const {user_id} = user.id
         let attributes = {event_id: event_id, user_id: user_id}
-        // console.log(event_id);
-        // console.log(this.props.user.id);
-        createAttLog(attributes)
 
-        // .then((att_log_save) =>{
-        //   this.setstate({att_log_save: true})
-        //           console.log(att_log_save);
-        // })
+        createAttLog(attributes)
 
         .catch((error) => {
           this.setState({ error })
@@ -79,34 +67,6 @@ class EventPage extends React.Component {
 
 
   render () {
-<<<<<<< HEAD
-    const {user} = this.props
-
-    return (
-      <React.Fragment>
-        <div className= "eventinfo">
-          <h2>{this.state.event.event_name}</h2>
-          <ul>
-            <h5>Date: {this.state.event.date}</h5>
-            <h5>Time: {this.state.event.time}</h5>
-            <h5>Duration: {this.state.event.duration}</h5>
-            <h5>Location: {this.state.event.location_name}</h5>
-            <h5>Activity: {this.state.event.activity}</h5>
-            <h5>Intensity: {this.state.event.level}</h5>
-            <h5>Enrolled: {this.state.event.max_enrollment}</h5>
-            <h5>You will need: {this.state.event.equipment}</h5>
-            <h5>Additional info: {this.state.event.comments}</h5>
-          </ul>
-        </div>
-        {user.is_attending &&
-          <button type="button" onClick={this.removeAttLog} className="btn btn-outline-danger">Cancel registration for this Event</button>
-        }
-        {!user.is_attending &&
-          <button type="button" onClick={this.att_log} className="btn btn-outline-success">Sign up for this Event</button>
-        }
-        <button type="button" onClick={this.removeAttLog} className="btn btn-outline-danger">Cancel registration for this Event</button>
-
-=======
     const { user, google_maps_api_key } = this.props
     const { event } = this.state
     return (
@@ -127,6 +87,14 @@ class EventPage extends React.Component {
                 <h5>Additional info: {event.comments}</h5>
               </ul>
               <button type="button" onClick={this.att_log} className="btn btn-outline-success">Sign up for this Event</button>
+              {user.is_attending &&
+                <button type="button" onClick={this.removeAttLog} className="btn btn-outline-danger">Cancel registration for this Event</button>
+              }
+              {!user.is_attending &&
+                <button type="button" onClick={this.att_log} className="btn btn-outline-success">Sign up for this Event</button>
+              }
+              <button type="button" onClick={this.removeAttLog} className="btn btn-outline-danger">Cancel registration for this Event</button>
+
             </Col>
             <Col xs={9} md={6}>
               < Map
@@ -138,7 +106,6 @@ class EventPage extends React.Component {
             </Col>
           </Row><br />
         </Container>
->>>>>>> master
       </React.Fragment>
     );
   }

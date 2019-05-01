@@ -12,7 +12,7 @@ json.equipment event.equipment
 json.trainer_id event.trainer_id
 json.duration event.duration
 json.comments event.comments
-json.attendance_count event.attendance_logs.length
 if current_user.present?
-  json.is_attending event.attending?(current_user)
+json.attendance_count event.attendance_logs.length
+json.is_attending event.attending?(current_user)
 end

@@ -36,7 +36,6 @@ class AttendanceLogsController < ApplicationController
 
   end
 
-  # DELETE /attendance_logs/1
 
   def destroy
     attendance_log = AttendanceLog.find(params[:id])

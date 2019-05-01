@@ -76,47 +76,12 @@ class AuthenticatedApp extends React.Component {
     })
   }
 
-<<<<<<< HEAD
 
-
-
-=======
->>>>>>> master
   render () {
-    let { events, show } = this.state
+    let { events, show, attendance_logs} = this.state
     let { google_maps_api_key, current_user } = this.props
     return (
       <React.Fragment>
-<<<<<<< HEAD
-        <Router>
-          <NavAuth />
-          {current_user.is_trainer &&
-            <div>
-              <h1 >Welcome {current_user.username}!</h1>
-
-              < HostedEvents
-                events={events}
-                user={current_user}
-                removeEvent={this.removeEvent}
-                editEvent={this.editEvent}
-              />
-              < NewEvent
-                addEvent={this.newEvent}
-                show={show}
-                onHide={() => this.setState({ show: false })} user={current_user} />
-              < Events events={events} user={current_user} />
-            </div>
-          }
-
-          {!current_user.is_trainer &&
-            <div>
-              <h1>Hello {current_user.username}!</h1>
-              < RegisteredEvents events={events} user={current_user} attendance_logs={attendance_logs} />
-              < Events events={events} user={current_user} />
-            </div>
-          }
-          </Router>
-=======
         < NavAuth />
         < Header user={current_user} />
         {current_user.is_trainer &&
@@ -150,7 +115,6 @@ class AuthenticatedApp extends React.Component {
             />
           </div>
         }
->>>>>>> master
         <Footer />
       </React.Fragment>
     );
