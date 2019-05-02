@@ -21,7 +21,7 @@ class CarouselSection extends React.Component {
                </Carousel.Item>
 
               <Carousel.Item>
-                 <img className= "beach-day" src={Image1} alt="Second Slide" />
+                 <img className= "beach-day" src={Image5} alt="Second Slide" />
              </Carousel.Item>
 
              <Carousel.Item>
@@ -33,7 +33,7 @@ class CarouselSection extends React.Component {
             </Carousel.Item>
 
             <Carousel.Item>
-              <img className= "beach-day" src={Image5} alt="First Slide" />
+              <img className= "beach-day" src={Image1} alt="First Slide" />
             </Carousel.Item>
        </Carousel>
 

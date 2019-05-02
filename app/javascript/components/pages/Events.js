@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from "prop-types"
-
 import { CardDeck, Card, Button } from "react-bootstrap"
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
-
 import EventPage from './EventPage'
 
 class Events extends React.Component {
@@ -44,7 +42,10 @@ class Events extends React.Component {
           )})}
           </CardDeck>
           < Route path='/event/:id'
-                render={(props) => <EventPage {...props} user={user} google_maps_api_key={google_maps_api_key} showEvents={showEvents}
+                render={(props) => <EventPage {...props}
+                user={user}
+                google_maps_api_key={google_maps_api_key}
+                showEvents={showEvents}
                 />}
           />
         </div>

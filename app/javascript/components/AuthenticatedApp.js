@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from "prop-types"
-
-import { allEvents, createEvent, updateEvent, deleteEvent, getAttLogs } from './api'
-
+import {allEvents, createEvent, updateEvent, deleteEvent, getAttLogs, deleteAttLog} from './api'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import RegisteredEvents from './RegisteredEvents'
 import Events from './pages/Events'
@@ -39,22 +37,22 @@ class AuthenticatedApp extends React.Component {
 
   newEvent = (newEventInfo) => {
   	createEvent(newEventInfo)
-      .then(successEvent => {
-        this.showEvents()
-      })
-      .catch((error) => {
-        this.setState({ error })
-      })
+    .then(successEvent => {
+      this.showEvents()
+    })
+    .catch((error) => {
+      this.setState({ error })
+    })
   }
 
   editEvent = (id, update) => {
   	updateEvent(id, update)
-      .then(updatedEvent => {
-        this.showEvents()
-      })
-      .catch((error) => {
-        this.setState({ error })
-      })
+    .then(updatedEvent => {
+      this.showEvents()
+    })
+    .catch((error) => {
+      this.setState({ error })
+    })
   }
 
   removeEvent = (id) => {
@@ -76,6 +74,13 @@ class AuthenticatedApp extends React.Component {
     })
   }
 
+  removeAttLog = (id) => {
+    deleteAttLog(id)
+      .then((event)=>{
+      this.showEvents()
+      })
+    alert("You are no longer registered for this event!")
+  }
 
   render () {
     let { events, show, attendance_logs} = this.state
@@ -91,24 +96,37 @@ class AuthenticatedApp extends React.Component {
               user={current_user}
               removeEvent={this.removeEvent}
               editEvent={this.editEvent}
-            />
+            /><br/>
             < NewEvent
               addEvent={this.newEvent}
               show={show}
               onHide={() => this.setState({ show: false })} user={current_user}
-            />
+            /><br/>
+            < RegisteredEvents
+              removeAttLog={this.removeAttLog}
+              events={events}
+              user={current_user}
+              attendance_logs={attendance_logs}
+              google_maps_api_key={google_maps_api_key}
+            /><br/>
             < Events
               events={events}
               user={current_user}
               google_maps_api_key={google_maps_api_key}
+              showEvents={this.showEvents}
             />
           </div>
         }
 
         {!current_user.is_trainer &&
           <div>
-            < RegisteredEvents showEvents={this.showEvents} events={events}
-            user={current_user} attendance_logs={attendance_logs} google_maps_api_key={google_maps_api_key}/>
+            < RegisteredEvents
+              removeAttLog={this.removeAttLog}
+              events={events}
+              user={current_user}
+              attendance_logs={attendance_logs}
+              google_maps_api_key={google_maps_api_key}
+            /><br/>
             < Events
               events={events}
               user={current_user}
