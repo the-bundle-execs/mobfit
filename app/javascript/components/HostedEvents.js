@@ -14,11 +14,11 @@ class HostedEvents extends React.Component {
     return (
       <React.Fragment>
         {hostedEvents.length === 0 &&
-          <h4 key={user.id} style={{textAlign: 'center'}}>Not hosting events:(</h4>
+          <h4 key={user.id} style={{textAlign: 'center'}}>You Are Currently Not Hosting Any Events</h4>
         }
         {hostedEvents.length !== 0 &&
           <div>
-            <h3>Hosted Events</h3>
+            <h3 style={{textAlign: 'center'}}>Hosted Events</h3>
             <CardDeck>
               {hostedEvents.map(event => {
                 return(

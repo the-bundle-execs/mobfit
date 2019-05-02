@@ -14,9 +14,9 @@ class RegisteredEvents extends React.Component {
           <h4 key={user.id} style={{textAlign: 'center'}}>You are not registered for any events.</h4>
         }
         {registeredEvents.length !== 0 &&
-          <div >
-            <h3>Registered Events</h3>
-            <CardDeck >
+          <div>
+            <h3 style={{textAlign: 'center'}}>Registered Events</h3>
+            <CardDeck>
             {registeredEvents.map(event => {
               return(
                 <div key={event.id}>

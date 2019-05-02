@@ -7,21 +7,20 @@ class Testimonial extends Component {
   render() {
     return(
       <div>
-        <blockquote class="blockquote">
-        <p class="mb-0">I am so happy to be part of my very own MobFit family.
-        the dark chapters of my life whene I would wander the parks aimlessly asking if people want
-        to play a sweaty game of quidditch. The people at MobFit have some serious magic going on over there.
-         Now I have a community where I can bring my broom and confidently know, I wont be the only one.</p>
-        <footer class="blockquote-footer"> Albus Dumbledore </footer>
+        <blockquote className="blockquote">
+        <p className="mb-0">I've been living here for for 72 years. Everyone out in the parks doin their
+        yoga bothered me. How do these people find each other?? Then I overheard them say mid yoga "Mobfit
+        BLAH blah BLah"... so I checked it out... And NOW I workout with them every Saturday!!!... and now YOU'RE the jealous one. </p>
+        <footer className="blockquote-footer"> Agatha Rose </footer>
         <br/>
-        <p class="mb-0">I met my wife during a MobFit event. She was talking trash about my under arm throw,
-        so I decided to buckle up buttercup and see if she'd be willing to share a kiwi stawberry gatorade with me.
-        Next thing you know, after blinking a few times, we are now happily married and have the beginings of a Mini Mobfit family of our very own! Thanks Mobfit!!</p>
-        <footer class="blockquote-footer">Tom Cruise  </footer>
+        <p className="mb-0">When Im out there kicking and punching the air with my best friend Roxy, its amazing. Zacks Power Ranger Cardio className has never been
+        cancelled. Dude's next level. I love how he checks in with what we should be feeling and doesnt push us so hard as to over exert myself. Sometimes we all go out to a buffet
+        afterwards because hey, we earned it!! </p>
+        <footer className="blockquote-footer">Zack Taylor  </footer>
         <br/>
-        <p class="mb-0">I'm new in town and needed some bros to play Ultimate Frisbee with. Being shy, I thought I would never
+        <p classNameName="mb-0">I'm new in town and needed some bros to play Ultimate Frisbee with. Being shy, I thought I would never
         find some bros. But then I saw other bros were lookin for bros just like me! Now Im bro-ing it out every other week with these bros! Thank you Mobfit</p>
-        <footer class="blockquote-footer">Chad Bro </footer>
+        <footer classNameName="blockquote-footer">Chad Bro </footer>
         </blockquote>
       </div>
 

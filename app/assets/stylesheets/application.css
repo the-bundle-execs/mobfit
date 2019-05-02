@@ -40,23 +40,18 @@ text-shadow: 2px 2px 4px #593196;
 }
 .nav-bar{
     margin-top: -115px;
-
 }
 
  .beach-day {
     width: 100%;
     height: 100%;
-
-
- }
+}
 
  .carousel {
  margin: auto;
  height:auto;
  width: 100%;
-
-
- }
+}
 
  .aboutus{
   text-align:center;
@@ -70,18 +65,20 @@ text-shadow: 2px 2px 4px #593196;
 
 
 .footer{
+  text-align: center;
   border: 1px;
+  color: white;
   background-color: #593196;
   height: 50px;
   padding-top: 15px;
   padding-bottom: -20px;
-  }
+}
 
   .copyrights{
     text-align: center;
     color:white;
 
-  }
+}
 
   .aboutborder{
     margin: auto;
@@ -163,3 +160,21 @@ text-shadow: 2px 2px 4px #593196;
   font-size: 30px;
   font-family: arrow;
 }
+.hosted_events{
+  color:#ebe7ee;
+  font-size: 30px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.signoutbutton{
+  margin-left: 940px;
+  font-family: georgia;
+  font-size: 18px;
+  color: white;
+
+}
+
+.navbuttons{
+  font-family: georgia;
+  font-size: 18px;
