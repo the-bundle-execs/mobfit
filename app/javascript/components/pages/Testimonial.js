@@ -18,9 +18,9 @@ class Testimonial extends Component {
         afterwards because hey, we earned it!! </p>
         <footer className="blockquote-footer">Zack Taylor  </footer>
         <br/>
-        <p classNameName="mb-0">I'm new in town and needed some bros to play Ultimate Frisbee with. Being shy, I thought I would never
+        <p className="mb-0">I'm new in town and needed some bros to play Ultimate Frisbee with. Being shy, I thought I would never
         find some bros. But then I saw other bros were lookin for bros just like me! Now Im bro-ing it out every other week with these bros! Thank you Mobfit</p>
-        <footer classNameName="blockquote-footer">Chad Bro </footer>
+        <footer className="blockquote-footer">Chad Bro </footer>
         </blockquote>
       </div>
 

@@ -19,8 +19,6 @@ class NavUnauth extends React.Component {
             <Navbar.Brand img src={Logo}>
               <img src={Logo}className="logo" alt="Logo" />
             </Navbar.Brand>
-
-
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="navbuttons">
@@ -30,12 +28,11 @@ class NavUnauth extends React.Component {
                     <Nav.Link href="/users/sign_up">Sign up</Nav.Link>
                 </Nav>
               </Navbar.Collapse>
-              </Navbar>
-                <h1 className = "welcome"> Welcome to MobFit</h1>
-
-          </Jumbotron>
-              <Route exact path="/gettingstart" component={GettingStarted} />
-              <Route exact path="/about" component={AboutUs} />
+            </Navbar>
+            <h1 className = "welcome"> Welcome to MobFit</h1>
+        </Jumbotron>
+          <Route exact path="/gettingstart" component={GettingStarted} />
+          <Route exact path="/about" component={AboutUs} />
        </Router>
       </React.Fragment>
     );

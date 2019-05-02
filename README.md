@@ -1,16 +1,11 @@
 # MobFit README
 
-An initializer file has been created here: config/initializers/rolify.rb, you
-can change rolify settings to match your needs.
-Defaults values are commented out.
+Created by The Bundle Execs:
+Jess Guttenberg
+Robert Jenkins
+Mary Magee
+Muzit Sebhatlab
 
-A Role class has been created in app/models (with the name you gave as
-argument otherwise the default is role.rb), you can add your own business logic
-inside.
+Deployed: https://fierce-dusk-91597.herokuapp.com/
 
-Inside your User class (or the name you gave as argument otherwise the default
-is user.rb), rolify method has been inserted to provide rolify methods.
-
-hosted_events will be what loads to trainer dashboard
-trainer_id : if is_trainer, user_id=trainer_id
-if current_user == trainer id
+Decoupled application: React inside of Rails. Postgres database. One external API: Google Maps with Geocoder gem. Jbuilder. React Bootstrap with additional CSS. Two forms of authentication with Devise. Used Trello to track project management and progress. Agile Development.

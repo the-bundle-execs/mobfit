@@ -1,41 +1,20 @@
 class AttendanceLogsController < ApplicationController
-    skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
 
   def index
     attendance_logs = AttendanceLog.all
     render json: attendance_logs
   end
 
-  def show
-  end
-
-
-  def new
-
-  end
-
-
-  def edit
-  end
-
-
   def create
     attendance_log = current_user.attendance_logs.new(attendance_log_params)
-
     if attendance_log.valid?
       attendance_log.save
       render json: attendance_log
     else
       render json: attendance_log.errors, status: :unprocessable_entity
     end
-
   end
-
-
-  def update
-
-  end
-
 
   def destroy
     attendance_log = AttendanceLog.find(params[:id])
@@ -43,8 +22,6 @@ class AttendanceLogsController < ApplicationController
   end
 
   private
-
-
     def attendance_log_params
       params.require(:attendance_log).permit(:user_id, :event_id)
     end

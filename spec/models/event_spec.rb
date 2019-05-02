@@ -66,9 +66,4 @@ RSpec.describe Event, type: :model do
     event = Event.create
     expect(event.errors[:max_enrollment]).to_not be_empty
   end
-<<<<<<< HEAD
-
-
-=======
->>>>>>> master
 end
