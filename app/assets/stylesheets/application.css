@@ -132,3 +132,10 @@ text-shadow: 2px 2px 4px #593196;
   border: 3px purple;
 
 }
+
+.hosted_events{
+  color:#ebe7ee;
+  font-size: 30px;
+  font-style: italic;
+  font-weight: bold;
+}
