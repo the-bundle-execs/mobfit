@@ -132,3 +132,34 @@ text-shadow: 2px 2px 4px #593196;
   border: 3px purple;
 
 }
+.signup-button{
+  margin-left: 35px;
+  font-style: bold;
+}
+.cancel-button{
+  text-align: center;
+
+}
+.edit-button{
+  text-align: center;
+}
+
+.card-title{
+  font-style: italic;
+  font-size: 22px;
+}
+
+.more-info-button{
+  text-align: center;
+}
+
+.reg-cards{
+  text-align: center;
+}
+.card-title{
+  text-align: center;
+}
+.create-button{
+  font-size: 30px;
+  font-family: arrow;
+}
