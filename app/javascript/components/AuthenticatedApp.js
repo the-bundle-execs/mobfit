@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from "prop-types"
 import {allEvents, createEvent, updateEvent, deleteEvent, getAttLogs, deleteAttLog} from './api'
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import RegisteredEvents from './RegisteredEvents'
 import Events from './pages/Events'
 import NewEvent from './pages/NewEvent'
@@ -12,13 +11,13 @@ import Header from './Header'
 
 class AuthenticatedApp extends React.Component {
   constructor(props){
-     super(props)
-     this.state = {
-       error: null,
-       events: [],
-       attendance_logs: []
-     }
-   }
+    super(props)
+    this.state = {
+      error: null,
+      events: [],
+      attendance_logs: []
+    }
+  }
 
   componentDidMount = () => {
     this.showEvents()
@@ -135,7 +134,7 @@ class AuthenticatedApp extends React.Component {
             />
           </div>
         }
-        <Footer />
+        < Footer />
       </React.Fragment>
     );
   }

@@ -1,4 +1,4 @@
-const BASE = 'http://localhost:3000'
+const BASE = ''
 
 let allEvents = () => {
 	return fetch(BASE + '/events')

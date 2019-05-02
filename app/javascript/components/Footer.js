@@ -2,10 +2,9 @@ import React from 'react'
 import { FaGithub } from 'react-icons/fa'
 
 const GithubStyle = {
-  // verticalAlign: 'middle',
   fontSize: '27px'
 }
-//link, inline
+
 class Footer extends React.Component {
   render () {
     return (
