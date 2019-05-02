@@ -21,5 +21,4 @@ test:
   database: db/test_mobfit
 
 production:
-  url: <%=ENV['DATABASE_URL'] %>
-  
+  url: <%= ENV['DATABASE_URL'] %>

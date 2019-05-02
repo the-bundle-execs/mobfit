@@ -3,11 +3,8 @@ import PropTypes from "prop-types"
 import { CardDeck, Card, Button } from "react-bootstrap"
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import EventPage from './pages/EventPage'
-import {deleteAttLog} from './api'
 
 class RegisteredEvents extends React.Component {
-
-
   render () {
     const { events, user, attendance_logs, google_maps_api_key } = this.props
     const registeredEvents = events.filter(event => event.is_attending);
@@ -18,7 +15,7 @@ class RegisteredEvents extends React.Component {
         }
         {registeredEvents.length !== 0 &&
           <div>
-            <h1>Registered Events</h1>
+            <h3>Registered Events</h3>
             <CardDeck>
             {registeredEvents.map(event => {
               return(
@@ -37,7 +34,7 @@ class RegisteredEvents extends React.Component {
                       </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-
+                      <Button type="button" onClick={()=>this.props.removeAttLog(event.id)} className="btn btn-sm btn-outline">Cancel Registration</Button>
                     </Card.Footer>
                   </Card>
                 </div>

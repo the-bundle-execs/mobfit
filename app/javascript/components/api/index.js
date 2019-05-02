@@ -30,7 +30,7 @@ let createEvent = (newevent) => {
 		.catch(e=> alert(e))
 }
 
-let showEvent = id => {
+let showEvent = (id)=> {
 	return fetch(BASE + `/events/${id}`, {
 		method: "GET"
 	})
@@ -77,7 +77,7 @@ let createAttLog = (newloginfo) => {
 		},
 		method: "POST"
 	})
-		.then((response) => { //promise
+		.then((response) => {
 			if(response.status === 200){
 	      return response.json()
 	    } else {
@@ -89,7 +89,7 @@ let createAttLog = (newloginfo) => {
 
 let getAttLogs = () => {
 	return fetch(BASE + '/attendance_logs')
-  .then((response) => { //promise
+  .then((response) => {
 		if(response.status === 200){
       return response.json()
     } else {
@@ -99,24 +99,27 @@ let getAttLogs = () => {
 	.catch(e=> alert(e))
 }
 
-let deleteAttLog = id => {
-	console.log(id);
+let deleteAttLog = (id) => {
 	return fetch(BASE + `/events/${id}/unsubscribe`, {
 		method: "DELETE"
 	})
-	.then((response) => { //promise
+	.then((response) => {
 		if(response.status === 200){
       return response.json()
     } else {
       throw "Bad Response"
     }
   })
-	.then(response =>{
-		console.log(response);
-	})
 	.catch(e=> alert(e))
 }
 
 export  {
-	allEvents, createEvent, showEvent, createAttLog, getAttLogs, updateEvent, deleteEvent, deleteAttLog
+	allEvents,
+	createEvent,
+	showEvent,
+	createAttLog,
+	getAttLogs,
+	updateEvent,
+	deleteEvent,
+	deleteAttLog
 }
