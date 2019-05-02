@@ -91,12 +91,15 @@ class AuthenticatedApp extends React.Component {
               user={current_user}
               removeEvent={this.removeEvent}
               editEvent={this.editEvent}
-            />
+            /><br/>
             < NewEvent
               addEvent={this.newEvent}
               show={show}
               onHide={() => this.setState({ show: false })} user={current_user}
-            />
+            /><br/>
+            < RegisteredEvents showEvents={this.showEvents} events={events}
+            user={current_user} attendance_logs={attendance_logs} google_maps_api_key={google_maps_api_key}
+            /><br/>
             < Events
               events={events}
               user={current_user}
@@ -108,7 +111,8 @@ class AuthenticatedApp extends React.Component {
         {!current_user.is_trainer &&
           <div>
             < RegisteredEvents showEvents={this.showEvents} events={events}
-            user={current_user} attendance_logs={attendance_logs} google_maps_api_key={google_maps_api_key}/>
+            user={current_user} attendance_logs={attendance_logs} google_maps_api_key={google_maps_api_key}
+            /><br/>
             < Events
               events={events}
               user={current_user}
