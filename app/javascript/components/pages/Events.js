@@ -15,7 +15,7 @@ class Events extends React.Component {
           <CardDeck>
           {events.map((evt, index) =>{
             return(
-              <Card key={index} className="card border-warning mb-3">
+              <Card key={index} className="card border-primary mb-3">
                 <Card.Body>
                   <Card.Title>{evt.event_name}</Card.Title>
                   <Card.Text>
@@ -30,12 +30,16 @@ class Events extends React.Component {
                 </Card.Body>
                 <Card.Footer>
                 {user &&
+                <div className= "more-info-button">
                 <Link to={`/event/${evt.id}`}><button
-                  type="button" className="btn btn-outline-secondary">More Info</button>
+                  type="button" className="btn btn-outline-info">More Info</button>
                 </Link>
+                </div>
                 }
                 {!user &&
+                  <div className= "more-info-button">
                   <Button id="submit" href="/users/sign_up" variant="btn btn-outline-secondary">Sign Up For More Info</Button>
+                  </div>
                 }
                 </Card.Footer>
               </Card>

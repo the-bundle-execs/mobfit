@@ -38,11 +38,13 @@ class EditEvent extends React.Component {
     const { user, event } = this.props
     return (
       <React.Fragment>
+      <div className="edit-button">
       <Button
-        variant="light"
+        variant="btn btn-outline-info"
         user={user}
         onClick={() => this.setState({show: true})}>Edit Event
       </Button>
+      </div>
         <Modal show={show}  size="lg">
           <Modal.Header>
             <div>

@@ -15,14 +15,14 @@ class RegisteredEvents extends React.Component {
         }
         {registeredEvents.length !== 0 &&
           <div>
-            <h3>Registered Events</h3>
+            <h3 style={{textAlign: 'center'}}>Registered Events</h3>
             <CardDeck>
             {registeredEvents.map(event => {
               return(
                 <div key={event.id}>
                   <Card className="card border-primary mb-3">
                     <Card.Body>
-                      <Card.Title>{event.event_name}</Card.Title>
+                      <Card.Title className="cards">{event.event_name}</Card.Title>
                       <Card.Text>
                         Where: {event.location_name}
                         <br></br>
@@ -34,7 +34,9 @@ class RegisteredEvents extends React.Component {
                       </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                      <Button type="button" onClick={()=>this.props.removeAttLog(event.id)} className="btn btn-sm btn-outline">Cancel Registration</Button>
+                    <div className="cancel-button">
+                      <Button type="button" onClick={()=>this.props.removeAttLog(event.id)} variant="btn btn-sm btn-outline-secondary">Cancel Registration</Button>
+                    </div>
                     </Card.Footer>
                   </Card>
                 </div>

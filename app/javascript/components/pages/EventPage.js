@@ -77,7 +77,9 @@ class EventPage extends React.Component {
                 <h5>Please Bring: {event.equipment}</h5>
                 <h5>Additional info: {event.comments}</h5>
               </ul>
-              <Button type="button" onClick={this.attLog} className="btn btn-outline">Sign up for this Event</Button>
+              <div className= "signup-button">
+              <Button type="button" onClick={this.attLog} variant="btn btn-success">Sign up for this Event!</Button>
+              </div>
             </Col>
             <Col xs={9} md={6}>
               < Map
