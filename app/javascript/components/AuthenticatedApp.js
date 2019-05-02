@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from "prop-types"
-
-import { allEvents, createEvent, updateEvent, deleteEvent, getAttLogs, deleteAttLog } from './api'
-
+import {allEvents, createEvent, updateEvent, deleteEvent, getAttLogs, deleteAttLog} from './api'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import RegisteredEvents from './RegisteredEvents'
 import Events from './pages/Events'
@@ -39,22 +37,22 @@ class AuthenticatedApp extends React.Component {
 
   newEvent = (newEventInfo) => {
   	createEvent(newEventInfo)
-      .then(successEvent => {
-        this.showEvents()
-      })
-      .catch((error) => {
-        this.setState({ error })
-      })
+    .then(successEvent => {
+      this.showEvents()
+    })
+    .catch((error) => {
+      this.setState({ error })
+    })
   }
 
   editEvent = (id, update) => {
   	updateEvent(id, update)
-      .then(updatedEvent => {
-        this.showEvents()
-      })
-      .catch((error) => {
-        this.setState({ error })
-      })
+    .then(updatedEvent => {
+      this.showEvents()
+    })
+    .catch((error) => {
+      this.setState({ error })
+    })
   }
 
   removeEvent = (id) => {
@@ -76,14 +74,13 @@ class AuthenticatedApp extends React.Component {
     })
   }
 
-    removeAttLog = (id) => {
-      // const {event} = this.state
-        deleteAttLog(id)
-          .then((event)=>{
-          this.showEvents()
-          })
-        alert("You are no longer registered for this event!")
-    }
+  removeAttLog = (id) => {
+    deleteAttLog(id)
+      .then((event)=>{
+      this.showEvents()
+      })
+    alert("You are no longer registered for this event!")
+  }
 
   render () {
     let { events, show, attendance_logs} = this.state

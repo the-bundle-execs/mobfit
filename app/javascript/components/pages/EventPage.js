@@ -4,14 +4,12 @@ import { Button, Navbar, Nav, Container, Row, Col } from 'react-bootstrap'
 import { allEvents, showEvent, createAttLog, deleteAttLog } from '../api'
 import Map from '../Map'
 
-
 class EventPage extends React.Component {
   constructor(props){
     super(props)
     const{ match } = props
     this.state = {
       event: '',
-      events:[],
       error: null,
       event_id: match.params.id,
     }
@@ -95,4 +93,5 @@ class EventPage extends React.Component {
     );
   }
 }
+
 export default EventPage
