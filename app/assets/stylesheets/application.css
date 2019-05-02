@@ -70,9 +70,11 @@ text-shadow: 2px 2px 4px #593196;
 
 
 .footer{
+  text-align: center;
   border: 1px;
+  color: white;
   background-color: #593196;
-  height: 50px;
+  height: 100px;
   padding-top: 15px;
   padding-bottom: -20px;
   }
