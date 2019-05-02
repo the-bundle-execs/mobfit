@@ -8,7 +8,6 @@ const PinStyle = {
 
 class Pin extends React.Component {
   render() {
-    const { location } = this.props
     return (
       <div>
         < FaMapPin style={PinStyle} />

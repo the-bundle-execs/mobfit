@@ -12,7 +12,7 @@ class Map extends React.Component {
         <GoogleMap
           bootstrapURLKeys={{key: google_maps_api_key}}
           center={[parseFloat(lat), parseFloat(long)]}
-          zoom={7}
+          zoom={12}
         >
         < Pin
           lat={lat}
