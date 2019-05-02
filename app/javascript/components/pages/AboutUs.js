@@ -11,11 +11,11 @@ import ReactDOM from 'react-dom'
          where trainers and people can come together and break a sweat!
 
          The idea came to us in a collective dream.
-         Gone are the days of watching those pesky kids using up all that space in the parks. Move over uncle Joes Yearly BBQ! We're coming in, and we want to sweat!!
+         Gone are the days of watching those pesky kids using up all that space in the parks.
+         Move over uncle Joes Yearly BBQ! We're coming in, and we want to sweat!! And some ribs.
 
-         Get your dancing shoes on mister, theres a world of people out there, people with experience in fitness coming out of their ears. These people want to guide you and turn up the heat.
 
-         We are hoping this platform with make fitness more engaging and fun and sexy.
+
          </p>
        </div>
     )

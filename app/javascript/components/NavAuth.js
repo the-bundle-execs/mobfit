@@ -10,16 +10,14 @@ class NavAuth extends React.Component {
       <React.Fragment>
         <Jumbotron href="#home" id="landingpage" fluid className="text-xs-center">
             <Navbar variant="navbar navbar-expand-lg navbar-dark bg-primary" className="nav-bar">
-            <Navbar.Brand img src={Logo} href="#home">
+            <Navbar.Brand img src={Logo}>
             <img src={Logo}className="logo" alt="Logo" />
             </Navbar.Brand>
 
-                <Navbar.Brand href="#home">MobFit</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav variant="mr-auto">
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link rel="nofollow" data-method="delete"href="/users/sign_out">Logout</Nav.Link><br/>
+                <Nav.Link className="signoutbutton" rel="nofollow" data-method="delete"href="/users/sign_out">Logout</Nav.Link><br/>
 
                 </Nav>
                 </Navbar.Collapse>
