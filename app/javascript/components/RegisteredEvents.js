@@ -18,7 +18,7 @@ class RegisteredEvents extends React.Component {
         }
         {registeredEvents.length !== 0 &&
           <div>
-            <h1>Registered Events</h1>
+            <h3>Registered Events</h3>
             <CardDeck>
             {registeredEvents.map(event => {
               return(

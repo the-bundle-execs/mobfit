@@ -19,7 +19,7 @@ class HostedEvents extends React.Component {
         }
         {hostedEvents.length !== 0 &&
           <div>
-            <h1>Hosted Events</h1>
+            <h3>Hosted Events</h3>
             <CardDeck>
               {hostedEvents.map(event => {
                 return(
