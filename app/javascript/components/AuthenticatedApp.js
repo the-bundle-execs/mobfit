@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from "prop-types"
 
-import { allEvents, createEvent, updateEvent, deleteEvent, getAttLogs } from './api'
+import { allEvents, createEvent, updateEvent, deleteEvent, getAttLogs, deleteAttLog } from './api'
 
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import RegisteredEvents from './RegisteredEvents'
@@ -76,6 +76,14 @@ class AuthenticatedApp extends React.Component {
     })
   }
 
+    removeAttLog = (id) => {
+      // const {event} = this.state
+        deleteAttLog(id)
+          .then((event)=>{
+          this.showEvents()
+          })
+        alert("You are no longer registered for this event!")
+    }
 
   render () {
     let { events, show, attendance_logs} = this.state
@@ -98,7 +106,7 @@ class AuthenticatedApp extends React.Component {
               onHide={() => this.setState({ show: false })} user={current_user}
             /><br/>
             < RegisteredEvents
-              showEvents={this.showEvents}
+              removeAttLog={this.removeAttLog}
               events={events}
               user={current_user}
               attendance_logs={attendance_logs}
@@ -108,6 +116,7 @@ class AuthenticatedApp extends React.Component {
               events={events}
               user={current_user}
               google_maps_api_key={google_maps_api_key}
+              showEvents={this.showEvents}
             />
           </div>
         }
@@ -115,7 +124,7 @@ class AuthenticatedApp extends React.Component {
         {!current_user.is_trainer &&
           <div>
             < RegisteredEvents
-              showEvents={this.showEvents}
+              removeAttLog={this.removeAttLog}
               events={events}
               user={current_user}
               attendance_logs={attendance_logs}

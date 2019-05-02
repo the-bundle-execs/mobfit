@@ -7,70 +7,57 @@ import Map from '../Map'
 
 class EventPage extends React.Component {
   constructor(props){
-     super(props)
-     const{ match } = props
-     this.state = {
-       event: '',
-       events:[],
-       error: null,
-       event_id: match.params.id,
-     }
-   }
-
-   componentWillMount = () => {
-     const {event_id} = this.state
-     showEvent(event_id)
-     .then((event)=>{
-       this.setState({ event })
-     })
-     .catch((error) => {
-       this.setState({ error })
-     })
-   }
-
-   componentDidUpdate = (prevProps) => {
-     const {event_id} = this.state
-	    const prevMatch = prevProps.match
-	    const{ match } = this.props
-	    if(match.params.id != prevMatch.params.id){
-        showEvent(match.params.id)
-        .then((event)=>{
-          this.setState({ event })
-          this.setState({event_id: match.params.id})
-        })
-        .catch((error) => {
-          this.setState({ error })
-        })
-      }
+    super(props)
+    const{ match } = props
+    this.state = {
+      event: '',
+      events:[],
+      error: null,
+      event_id: match.params.id,
     }
+  }
 
-      att_log = (newattlog) => {
-        const {user} = this.props
-        const {event_id} = this.state
-        let user_id
-        let attributes = {event_id: event_id, user_id: user.id}
-        createAttLog(attributes)
-          .then((event)=>{
-          this.props.showEvents()
-          })
+  componentWillMount = () => {
+    const {event_id} = this.state
+    showEvent(event_id)
+    .then((event)=>{
+      this.setState({ event })
+    })
+    .catch((error) => {
+      this.setState({ error })
+    })
+  }
 
-        .catch((error) => {
-          this.setState({ error })
-        })
-        alert("You have successfully registered for this event!")
-      }
+  componentDidUpdate = (prevProps) => {
+    const {event_id} = this.state
+    const prevMatch = prevProps.match
+    const{ match } = this.props
+    if(match.params.id != prevMatch.params.id){
+      showEvent(match.params.id)
+      .then((event)=>{
+        this.setState({ event_id: match.params.id, event: event })
+      })
+      .catch((error) => {
+        this.setState({ error })
+      })
+    }
+  }
 
+  attLog = (newattlog) => {
+  const {user} = this.props
+  const {event_id} = this.state
+  let user_id
+  let attributes = {event_id: event_id, user_id: user.id}
+  createAttLog(attributes)
+  .then((event)=>{
+    this.props.showEvents()
+  })
 
-      removeAttLog = () => {
-      const {event} = this.state
-        deleteAttLog(event.id)
-          .then((event)=>{
-          this.props.showEvents()
-          })
-        alert("You are no longer registered for this event!")
-      }
-
-
+  .catch((error) => {
+    this.setState({ error })
+  })
+  alert("You have successfully registered for this event!")
+  }
 
   render () {
     const { user, google_maps_api_key, showEvents } = this.props
@@ -92,14 +79,7 @@ class EventPage extends React.Component {
                 <h5>Please Bring: {event.equipment}</h5>
                 <h5>Additional info: {event.comments}</h5>
               </ul>
-              {event.is_attending &&
-                <button type="button" onClick={this.removeAttLog} className="btn btn-outline-danger">Cancel registration for this Event</button>
-              }
-              {!event.is_attending &&
-                <button type="button" onClick={this.att_log} className="btn btn-outline-success">Sign up for this Event</button>
-              }
-              <button type="button" onClick={this.removeAttLog} className="btn btn-outline-danger">Cancel registration for this Event</button>
-
+              <Button type="button" onClick={this.attLog} className="btn btn-outline">Sign up for this Event</Button>
             </Col>
             <Col xs={9} md={6}>
               < Map
