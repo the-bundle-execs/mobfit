@@ -23,9 +23,9 @@ class HostedEvents extends React.Component {
               {hostedEvents.map(event => {
                 return(
                   <div key={event.id}>
-                    <Card className="card border-danger mb-3">
+                    <Card className="card border-info mb-3">
                       <Card.Body>
-                        <Card.Title>{event.event_name}</Card.Title>
+                        <Card.Title className="card-title">{event.event_name}</Card.Title>
                         <Card.Text>
                           Where: {event.location_name}
                           <br></br>

@@ -54,7 +54,8 @@ class NewEvent extends React.Component {
         <React.Fragment>
           <Button
             onClick={() => this.setState({ show: true })}
-            variant="btn btn-primary btn-lg btn-block">
+            variant="btn btn-primary btn-lg btn-block"
+            className="create-button">
             Create New Event
           </Button>
 
